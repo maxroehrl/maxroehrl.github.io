@@ -1,6 +1,5 @@
 'use strict';
 const gulp         = require('gulp');
-const ghPages      = require('gulp-gh-pages');
 const del          = require('del');
 const postcss      = require('gulp-postcss');
 const sourcemaps   = require('gulp-sourcemaps');
@@ -32,12 +31,6 @@ gulp.task('watch', function () {
     gulp.watch(SRC.IMG, ['img']);
     gulp.watch(SRC.JS, ['js']);
     gulp.watch(SRC.CSS, ['css']);
-});
-
-// Push build to master
-gulp.task('deploy', function () {
-    return gulp.src(DIST.HTML + '/**/*')
-        .pipe(ghPages({ branch: 'master' }));
 });
 
 // Delete all files under dist
