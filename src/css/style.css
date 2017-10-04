@@ -205,10 +205,6 @@ section > ul > li:hover {
     width: 470px;
 }
 
-.linkedin-icon {
-    height: 2em;
-}
-
 .bottom-links {
     display: flex;
     justify-content: space-around;
