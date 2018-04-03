@@ -4,6 +4,7 @@ body {
     border: 0;
     display: flex;
     min-height: 100%;
+    min-width: 268px;
     flex-direction: column;
     color: #666;
     background-color: #f1f1f1;
@@ -21,6 +22,7 @@ a:hover {
 }
 
 h1 {
+    font-weight: bold;
     color: #444;
     margin: 1em 0 .5em 0;
     font-size: 3em;
@@ -28,8 +30,15 @@ h1 {
 }
 
 h2 {
+    font-weight: bold;
     color: #ff5722;
     margin: .3em 0;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: .5em 0;
 }
 
 p {
@@ -167,15 +176,14 @@ section > ul > li:hover {
     flex: 1 0 300px;
 }
 
-#projects > ul > li:first-of-type {
+#projects > ul > .full-width {
     flex: 0 1 100%;
 }
 
 #contact a {
+    align-self: left;
     color: #1e1e1e;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: .5em 0;
+    margin: .5em;
 }
 
 #contact a:hover {
@@ -195,13 +203,26 @@ section > ul > li:hover {
 
 .screenshot {
     align-self: center;
+    margin: .5em;
+    width: 200px;
+}
+
+.theme-screenshot {
+    align-self: center;
     margin-top: 1em;
     width: 250px;
 }
 
+.lante-screenshot {
+    align-self: center;
+    margin: 0 .5em .5em .5em;
+    width: 420px;
+    height: 280px;
+}
+
 .big-screenshot {
     align-self: center;
-    margin-top: 1em;
+    margin: .3em;
     width: 470px;
 }
 
@@ -238,7 +259,6 @@ section > ul > li:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 250px;
     margin: .5em;
 }
 
@@ -249,13 +269,7 @@ section > ul > li:hover {
     margin: 0 .7em;
 }
 
-.theme-icon, .contact-icon {
-    width: 2.5em;
-    height: 2.5em;
-    margin: 0 .5em;
-}
-
-.github-icon {
+.theme-icon, .contact-icon, .github-icon, .download-icon {
     width: 2em;
     height: 2em;
     margin: 0 .5em;
@@ -295,31 +309,16 @@ footer {
         flex: 0 1 100%;
     }
 
-    .big-screenshot {
+    .big-screenshot, .theme-screenshot {
         width: 100%;
     }
-}
 
-@media only screen and (max-width: 400px) {
-    .navbar > a {
-        font-size: 1em;
+    .lante-screenshot {
+        width: 95%;
+        height: auto;
     }
 
-    h1 {
-        font-size: 2em;
-    }
-
-    #contact a {
-        font-size: 1.3em;
-    }
-}
-
-@media only screen and (max-width: 340px) {
-    .navbar > a {
-        font-size: .9em;
-    }
-
-    #contact a {
-        font-size: 1.1em;
+    .bottom-link {
+        margin: 0;
     }
 }
