@@ -12,6 +12,7 @@ body {
 }
 
 a {
+    display: inline-block;
     color: #666;
     text-decoration: none;
     transition: color .2s ease-in-out;
@@ -19,6 +20,12 @@ a {
 
 a:hover {
     color: #ff5722;
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+    min-height: 1px;
 }
 
 h1 {
@@ -253,6 +260,7 @@ section > ul > li:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
     margin: 1em .3em;
     background-color: #f5f5f5;
     border-radius: 6px;
@@ -320,7 +328,7 @@ footer {
         flex: 0 1 100%;
     }
 
-    .big-screenshot, .theme-screenshot {
+    .bottom-group-ver, .big-screenshot, .theme-screenshot {
         width: 100%;
     }
 
