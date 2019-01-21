@@ -1,22 +1,22 @@
 'use strict';
-const gulp         = require('gulp');
-const del          = require('del');
-const postcss      = require('gulp-postcss');
-const sourcemaps   = require('gulp-sourcemaps');
-const autoprefixer = require('autoprefixer');
-const cssnano      = require('cssnano');
-const htmlmin      = require('gulp-htmlmin');
-const imagemin     = require('gulp-imagemin');
-const uglify       = require('gulp-uglify');
+var gulp         = require('gulp');
+var del          = require('del');
+var postcss      = require('gulp-postcss');
+var sourcemaps   = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
+var cssnano      = require('cssnano');
+var htmlmin      = require('gulp-htmlmin');
+var imagemin     = require('gulp-imagemin');
+var uglify       = require('gulp-uglify');
 
-const DIST = {
+var DIST = {
     HTML: 'dist',
     IMG: 'dist/img',
     JS: 'dist/js',
     CSS: 'dist/css'
 };
 
-const SRC = {
+var SRC = {
     HTML: 'src/**/*.html',
     IMG: ['src/img/**/*.png', 'src/img/**/*.svg'],
     JS: 'src/js/**/*.js',
@@ -66,7 +66,7 @@ gulp.task('img', function () {
 
 // Autoprefix and minify all .css files
 gulp.task('css', function () {
-    const processors = [
+    var processors = [
         autoprefixer({ browsers: ['last 2 versions'] }),
         cssnano()
     ];
