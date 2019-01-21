@@ -1,10 +1,10 @@
 $(document).ready(function () {
     // Scroll to the id if a navigation link is clicked.
-    $('.navbar > a').on('click', function (event) {
+    $(".navbar > a").on("click", function (event) {
         var hash = this.hash;
         if (hash !== "") {
             event.preventDefault();
-            $('html, body').animate({
+            $("html, body").animate({
                 scrollTop: $(hash).offset().top
             }, 800, function () {
                 window.location.hash = hash;
@@ -14,9 +14,9 @@ $(document).ready(function () {
     $("main a[href ^= 'http']").attr("target", "_blank");
 
     // Image overlay
-    var overlay = $('#overlay');
+    var overlay = $("#overlay");
 
-    $('img').click(function () {
+    $("img").click(function () {
         overlay.fadeTo(600, 1).css({
             backgroundImage: "url(" + this.src + ")"
         });
