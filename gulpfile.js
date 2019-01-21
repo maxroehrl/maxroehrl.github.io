@@ -23,49 +23,44 @@ var SRC = {
     CSS: 'src/css/**/*.css'
 };
 
-gulp.task('default', ['watch']);
-
 // Rerun task if files change
-gulp.task('watch', function () {
-    gulp.watch(SRC.HTML, ['html']);
-    gulp.watch(SRC.IMG, ['img']);
-    gulp.watch(SRC.JS, ['js']);
-    gulp.watch(SRC.CSS, ['css']);
-});
+function watch() {
+    gulp.watch(SRC.HTML, html);
+    gulp.watch(SRC.IMG, img);
+    gulp.watch(SRC.JS, js);
+    gulp.watch(SRC.CSS, css);
+}
 
 // Delete all files under dist
-gulp.task('clean', function () {
+function clean() {
     return del([DIST.HTML]);
-});
-
-// Rebuild the project
-gulp.task('build', ['html', 'js', 'img', 'css']);
+}
 
 // Minify all .html files
-gulp.task('html', function () {
+function html() {
     return gulp.src(SRC.HTML)
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest(DIST.HTML));
-});
+}
 
 // Minify all .js files
-gulp.task('js', function () {
+function js() {
     return gulp.src(SRC.JS)
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(DIST.JS));
-});
+}
 
 // Optimize all .png and .svg files
-gulp.task('img', function () {
+function img() {
     return gulp.src(SRC.IMG)
         .pipe(imagemin())
         .pipe(gulp.dest(DIST.IMG));
-});
+}
 
 // Autoprefix and minify all .css files
-gulp.task('css', function () {
+function css() {
     var processors = [
         autoprefixer({ browsers: ['last 2 versions'] }),
         cssnano()
@@ -75,4 +70,13 @@ gulp.task('css', function () {
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(DIST.CSS));
-});
+}
+
+// Rebuild the project
+var build = gulp.series(clean, gulp.parallel(html, js, img, css));
+
+exports.clean = clean;
+exports.watch = watch;
+exports.build = build;
+
+exports.default = build;
