@@ -199,7 +199,6 @@ section > ul > li:hover {
 }
 
 #contact a {
-    align-self: left;
     color: #1e1e1e;
     margin: .5em;
 }
