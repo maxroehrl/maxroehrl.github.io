@@ -33,6 +33,7 @@
   import LanteChat from '../assets/lante_chat_screenshot.png'
   import LanteHistory from '../assets/lante_history_screenshot.png'
   import D3 from '../assets/d3.png'
+  import Simplification from '../assets/simplification.jpg'
 
   export default {
     name: "ProjectList",
@@ -120,9 +121,9 @@
           id: 2,
           title: "Transformer Toolkit",
           full: false,
-          description: `<p>A toolkit written in .NET for the Asus TF300T, TF700T, ME301T and the Nexus 5 (CAF)</p>
+          description: `<p>A toolkit written for the Asus Transformer Pad TF300T, TF700T, ME301T and the Google Nexus 5 (CAF)</p>
                         <ul>
-                          <li>Written in C#</li>
+                          <li>Written in C# with the .NET Framework</li>
                           <li>Uses WPF for the UI</li>
                           <li>Communication with Android devices trough <a href="https://developer.android.com/studio/command-line/adb.html">ADB</a></li>
                           <li>Download device specific recovery images from Google Drive</li>
@@ -193,8 +194,8 @@
           description: `<p>A script which updates your Dolphin Emulator installation</p>
                         <ul>
                           <li>Written in Python</li>
-                          <li>Beatiful Soup library for parsing html</li>
-                          <li>Colorama library for console output formating</li>
+                          <li>Beautiful Soup library for parsing HTML</li>
+                          <li>Colorama library for console output formatting</li>
                           <li>Fetches available versions from the official Dolphin website and Dropbox</li>
                         </ul>
                         <p style="color: #ff5722">Dolphin has now its own update functionality which makes this tool useless!</p>
@@ -289,6 +290,26 @@
           }]
         }, {
           id: 10,
+          title: "Surface Mesh Simplification",
+          full: false,
+          description: `<p>Reduces the number of vertices, faces, and edges of a mesh</p>
+                        <ul>
+                          <li>Written in C++</li>
+                          <li>Acts as a plugin of the <a href="https://www.cgal.org/">CGAL</a> Polyhedron3 Demo</li>
+                          <li>Uses <a href="https://www.qt.io/ui-framework">Qt UI</a> for the user interface</li>
+                          <li>Color difference can be used as a simplification constraint</li>
+                          <li>Different simplification options can be selected</li>
+                        </ul>`,
+          screenshots: [{
+            url: "dist/simplification.jpg"
+          }],
+          links: [{
+            text: "Github",
+            img: "dist/github.svg",
+            url: "https://github.com/maxroehrl/Surface_mesh_simplification"
+          }]
+        }, {
+          id: 11,
           title: "Random data generation",
           full: false,
           description: `<p>Generates random points in 2D and 3D</p>
@@ -309,7 +330,7 @@
             url: "https://jsfiddle.net/gv6uydqe/93/"
           }]
         }, {
-          id: 11,
+          id: 12,
           title: "This website",
           full: false,
           description: `<ul>
