@@ -2,22 +2,28 @@
   <li :class="{'full-width': project.full}">
     <div class="top-content">
       <h2>{{ project.title }}</h2>
-      <div v-html="project.description"></div>
+      <div v-html="project.description" />
     </div>
-    <div v-if="project.screenshots.length === 1" class="bottom-links">
-        <img :src="project.screenshots[0].url"
-             :alt="project.screenshots[0].caption"
-             class="screenshot"
-             :class="project.screenshots[0].class">
+    <div v-if="project.screenshots.length === 1"
+         class="bottom-links">
+      <img :src="project.screenshots[0].url"
+           :alt="project.screenshots[0].caption"
+           class="screenshot"
+           :class="project.screenshots[0].class">
     </div>
-    <div v-else-if="project.screenshots.length > 1" class="bottom-links">
-      <div v-for="screenshot in project.screenshots" class="bottom-group-ver">
+    <div v-else-if="project.screenshots.length > 1"
+         class="bottom-links">
+      <div v-for="screenshot in project.screenshots"
+           :key="screenshot.url"
+           class="bottom-group-ver">
         <div class="bottom-group-hor">
           <img v-if="screenshot.thumb"
                :src="screenshot.thumb"
                alt="screenshot.caption"
-               class="small-icon"/>
-          <h3 v-if="screenshot.caption">{{ screenshot.caption }}</h3>
+               class="small-icon">
+          <h3 v-if="screenshot.caption">
+            {{ screenshot.caption }}
+          </h3>
         </div>
         <img :src="screenshot.url"
              :alt="screenshot.caption"
@@ -25,9 +31,15 @@
              :class="screenshot.class">
       </div>
     </div>
-    <div v-if="project.links.length" class="bottom-links">
-      <a v-for="link in project.links" :href="link.url" class="bottom-link">
-        <component v-if="link.img" :is="link.img" class="small-icon"/>
+    <div v-if="project.links.length"
+         class="bottom-links">
+      <a v-for="link in project.links"
+         :key="link.url"
+         :href="link.url"
+         class="bottom-link">
+        <component :is="link.img"
+                   v-if="link.img"
+                   class="small-icon" />
         <p>{{ link.text }}</p>
       </a>
     </div>
@@ -35,27 +47,26 @@
 </template>
 
 <script>
-  import Github from '../assets/github.svg'
-  import Download from '../assets/download.svg'
+import Github from '../assets/github.svg';
+import Download from '../assets/download.svg';
 
-  export default {
-    name: "Project",
-    props: {
-      project: {
-        type: Object,
-        required: true
-      }
+export default {
+  name: 'Project',
+  components: {
+    Github,
+    Download,
+  },
+  props: {
+    project: {
+      type: Object,
+      required: true,
     },
-    components: {
-      Github,
-      Download,
-    },
-  }
+  },
+};
 </script>
 
 <style scoped lang="scss">
-  $accent: #ff5722;
-  $accentDark: #a94627;
+  @import "../colors";
 
   .bottom-links {
     display: flex;
@@ -65,10 +76,10 @@
     padding-top: 1em;
     margin-top: 1em;
     border-top: 1px solid #c2c2c2;
-  }
 
-  .bottom-links a {
-    transition: color .6s ease-in-out;
+    a {
+      @include transition(color);
+    }
   }
 
   .bottom-group-ver {
@@ -84,11 +95,11 @@
     border: 1px solid #c2c2c2;
     box-shadow: 0 0 0 rgba(38, 50, 56, .2);
     transition: all .6s ease;
-  }
 
-  .bottom-group-ver:hover {
-    box-shadow: 0 0 2px rgba(38, 50, 56, .2),
-    0 8px 24px 0 rgba(0, 0, 0, .2);
+    &:hover {
+      box-shadow: 0 0 2px rgba(38, 50, 56, .2),
+      0 8px 24px 0 rgba(0, 0, 0, .2);
+    }
   }
 
   .bottom-group-hor {
@@ -104,10 +115,14 @@
     justify-content: center;
     align-items: center;
     margin: 0 .7em;
-  }
 
-  .bottom-link:hover {
-    color: $accent;
+    &:hover {
+      color: $accent;
+
+      .small-icon {
+        fill: $accent;
+      }
+    }
   }
 
   .top-content {
@@ -143,6 +158,7 @@
     width: 2em;
     height: 2em;
     margin: 0 .5em;
+    @include transition(fill);
   }
 
   @media only screen and (max-width: 600px) {

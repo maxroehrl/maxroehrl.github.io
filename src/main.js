@@ -1,37 +1,37 @@
-import Vue from 'vue'
-import App from './App.vue'
-import $ from 'jquery'
+import Vue from 'vue';
+import App from './App.vue';
+import $ from 'jquery';
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: (h) => h(App),
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Scroll to the id if a navigation link is clicked.
-  $(".navbar > a").on("click", function (event) {
+  $('.navbar > a').on('click', function(event) {
     const hash = this.hash;
-    if (hash !== "") {
+    if (hash !== '') {
       event.preventDefault();
-      $("html, body").animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function () {
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top,
+      }, 800, function() {
         window.location.hash = hash;
       });
     }
   });
-  $("main a[href ^= 'http']").attr("target", "_blank");
+  $('main a[href ^= \'http\']').attr('target', '_blank');
 
   // Image overlay
-  const overlay = $("#overlay");
+  const overlay = $('#overlay');
 
-  $("img").click(function () {
+  $('img').click(function() {
     overlay.fadeTo(600, 1).css({
-      backgroundImage: `url(${this.src})`
+      backgroundImage: 'url(' + this.src + ')',
     });
   });
-  overlay.click(function () {
-    $(this).stop().fadeTo(600, 0, function () {
+  overlay.click(function() {
+    $(this).stop().fadeTo(600, 0, function() {
       $(this).hide();
     });
   });

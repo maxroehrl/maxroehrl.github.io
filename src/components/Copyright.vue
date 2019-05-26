@@ -5,20 +5,22 @@
 </template>
 
 <script>
-    export default {
-        name: "Copyright"
-    }
+export default {
+  name: 'Copyright',
+};
 </script>
 
 <style scoped lang="scss">
+  @import "../colors";
+
   .copyright {
     padding: 1em;
-    background-color: #1e1e1e;
-    border-top: 1px solid #000000;
-  }
+    background-color: $grey;
+    border-top: 1px solid black;
 
-  .copyright > p {
-    text-align: center;
-    color: #757575;
+    > p {
+      text-align: center;
+      color: #757575;
+    }
   }
 </style>

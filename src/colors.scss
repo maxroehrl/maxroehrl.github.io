@@ -1,0 +1,7 @@
+$accent: #ff5722;
+$accentDark: #a94627;
+$grey: #1e1e1e;
+
+@mixin transition($property) {
+  transition: $property .2s ease-in-out;
+}

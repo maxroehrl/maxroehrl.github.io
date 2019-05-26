@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'build.js',
   },
   module: {
     rules: [
@@ -16,7 +16,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
         ],
       },
       {
@@ -24,7 +24,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       },
       {
@@ -32,7 +32,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader?indentedSyntax'
+          'sass-loader?indentedSyntax',
         ],
       },
       {
@@ -46,55 +46,54 @@ module.exports = {
             'scss': [
               'vue-style-loader',
               'css-loader',
-              'sass-loader'
+              'sass-loader',
             ],
             'sass': [
               'vue-style-loader',
               'css-loader',
-              'sass-loader?indentedSyntax'
-            ]
-          }
-        }
+              'sass-loader?indentedSyntax',
+            ],
+          },
+        },
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: file => (
-          /node_modules/.test(file) &&
-          !/\.vue\.js/.test(file)
-        )
+        use: ['babel-loader', 'eslint-loader'],
+        exclude: (file) => (
+          /node_modules/.test(file)
+        ),
       },
       {
         test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
-        }
+          name: '[name].[ext]?[hash]',
+        },
       },
       {
         test: /\.svg$/,
         loader: 'vue-svg-loader',
       },
-    ]
+    ],
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js', '.vue', '.json'],
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
   },
   performance: {
-    hints: false
+    hints: false,
   },
   devtool: '#eval-source-map',
   plugins: [
     new VueLoaderPlugin(),
-  ]
+  ],
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -103,11 +102,11 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
-      }
+        NODE_ENV: '"production"',
+      },
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
+      minimize: true,
+    }),
   ]);
 }

@@ -1,11 +1,11 @@
 <template>
-  <div id="overlay"></div>
+  <div id="overlay" />
 </template>
 
 <script>
-  export default {
-    name: "Overlay",
-  }
+export default {
+  name: 'Overlay',
+};
 </script>
 
 <style scoped lang="scss">

@@ -1,55 +1,54 @@
 <template>
   <div id="app">
     <header>
-      <navbar :links="navbarLinks"></navbar>
+      <navbar :links="navbarLinks" />
     </header>
     <main>
-      <overlay></overlay>
-      <project-list></project-list>
-      <contact></contact>
+      <overlay />
+      <project-list />
+      <contact />
     </main>
     <footer>
-      <navbar :links="navbarLinks"></navbar>
+      <navbar :links="navbarLinks" />
     </footer>
-    <copyright></copyright>
+    <copyright />
   </div>
 </template>
 
 <script>
-  import Overlay from "./components/Overlay"
-  import ProjectList from "./components/ProjectList"
-  import Navbar from "./components/Navbar"
-  import Contact from "./components/Contact"
-  import Copyright from "./components/Copyright"
+import Overlay from './components/Overlay';
+import ProjectList from './components/ProjectList';
+import Navbar from './components/Navbar';
+import Contact from './components/Contact';
+import Copyright from './components/Copyright';
 
-  export default {
-    name: 'app',
-    data() {
-      return {
-        navbarLinks: [
-          {
-            url: "#projects",
-            text: "Projects"
-          }, {
-            url: "#contact",
-            text: "Contact"
-          }
-        ]
-      }
-    },
-    components: {
-      Overlay,
-      ProjectList,
-      Navbar,
-      Contact,
-      Copyright
-    }
-  }
+export default {
+  name: 'App',
+  components: {
+    Overlay,
+    ProjectList,
+    Navbar,
+    Contact,
+    Copyright,
+  },
+  data() {
+    return {
+      navbarLinks: [
+        {
+          url: '#projects',
+          text: 'Projects',
+        }, {
+          url: '#contact',
+          text: 'Contact',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
-  $accent: #ff5722;
-  $accentDark: #a94627;
+  @import "colors";
 
   body {
     margin: 0;
@@ -63,18 +62,17 @@
     background-color: #f1f1f1;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   a {
     display: inline-block;
     color: $accent;
     text-decoration: none;
-    transition: color .2s ease-in-out;
-  }
+    @include transition(color);
 
-  a:hover {
-    color: $accentDark;
+    &:hover {
+      color: $accentDark;
+    }
   }
 
   img {
@@ -134,42 +132,42 @@
 
   section {
     margin-bottom: 8em;
-  }
 
-  section > ul {
-    max-width: 1000px;
-    width: 90%;
-    margin: 2em auto;
-    list-style-type: none;
-    padding: 0;
-  }
+    > ul {
+      max-width: 1000px;
+      width: 90%;
+      margin: 2em auto;
+      list-style-type: none;
+      padding: 0;
 
-  section > ul > li {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    border: 1px solid #c2c2c2;
-    border-radius: 6px;
-    box-shadow: 0 0 0 rgba(38, 50, 56, .2);
-    padding: 1em;
-    margin: 1em;
-    transition: all .6s ease;
-  }
+      > li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        border: 1px solid #c2c2c2;
+        border-radius: 6px;
+        box-shadow: 0 0 0 rgba(38, 50, 56, .2);
+        padding: 1em;
+        margin: 1em;
+        transition: all .6s ease;
+      }
 
-  section > ul > li:hover {
-    box-shadow: 0 0 2px rgba(38, 50, 56, .2),
-    0 8px 24px 0 rgba(0, 0, 0, .2);
+      > li:hover {
+        box-shadow: 0 0 2px rgba(38, 50, 56, .2),
+        0 8px 24px 0 rgba(0, 0, 0, .2);
+      }
+    }
   }
 
   @media only screen and (max-width: 600px) {
     section > ul {
       width: 100%;
-    }
 
-    section > ul > li {
-      border-radius: 0;
-      margin: 1em 0;
+      > li {
+        border-radius: 0;
+        margin: 1em 0;
+      }
     }
   }
 </style>
