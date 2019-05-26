@@ -1,6 +1,6 @@
 <template>
   <a href=".">
-    <svg class="logo-svg" :viewBox="'0 0 '+ 2*size + ' ' + 2*size" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-svg" :viewBox="`0 0 ${2*size} ${2*size}`" xmlns="http://www.w3.org/2000/svg">
       <circle class="circle" :cx="size" :cy="size" :r=".9*size"></circle>
       <g class="logo-group">
         <circle class="ring" :cx="size" :cy="size" :r=".9*size"></circle>

@@ -65,12 +65,16 @@ module.exports = {
         )
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      },
     ]
   },
   resolve: {
@@ -88,15 +92,8 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map',
-  externals: {
-    jquery: 'jQuery'
-  },
   plugins: [
     new VueLoaderPlugin(),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    })
   ]
 };
 

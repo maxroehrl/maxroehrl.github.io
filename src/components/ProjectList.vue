@@ -38,7 +38,9 @@
   export default {
     name: "ProjectList",
     components: {
-      Project
+      Project,
+      Github,
+      Download,
     },
     data() {
       return {
@@ -71,7 +73,7 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/CM12Theme/tree/aurora",
           }, {
             text: "Play Store",
@@ -114,7 +116,7 @@
           }],
           links: [{
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://drive.google.com/file/d/1tghPESPn-aNBJlivI5z8g8BZkuB2V9VA/view?usp=sharing"
           }]
         }, {
@@ -135,7 +137,7 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/Transformer-Toolkit"
           }, {
             text: "XDA Developers Thread",
@@ -158,11 +160,11 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/Soundboard"
           }, {
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://github.com/maxroehrl/Soundboard/releases"
           }]
         }, {
@@ -180,11 +182,11 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/VibranceUtility"
           }, {
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://github.com/maxroehrl/VibranceUtility/releases"
           }]
         }, {
@@ -209,11 +211,11 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/DolphinUpdater"
           }, {
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://github.com/maxroehrl/DolphinUpdater/releases"
           }]
         }, {
@@ -231,11 +233,11 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/Abalone"
           }, {
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://github.com/maxroehrl/Abalone/releases"
           }]
         }, {
@@ -255,11 +257,11 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/TCPChat"
           }, {
             text: "Download",
-            img: "dist/download.svg",
+            img: Download,
             url: "https://github.com/maxroehrl/TCPChat/releases"
           }]
         }, {
@@ -273,7 +275,7 @@
           screenshots: [],
           links: [{
             text: "GH Gist",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://gist.github.com/maxroehrl/7e7dba05058b66e286adad7edcb257db"
           }]
         }, {
@@ -285,7 +287,7 @@
           screenshots: [],
           links: [{
             text: "GH Gist",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://gist.github.com/maxroehrl/f3c0c255118ff891e1336e6347d4c103"
           }]
         }, {
@@ -305,7 +307,7 @@
           }],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/Surface_mesh_simplification"
           }]
         }, {
@@ -344,12 +346,12 @@
           screenshots: [],
           links: [{
             text: "Github",
-            img: "dist/github.svg",
+            img: Github,
             url: "https://github.com/maxroehrl/maxroehrl.github.io"
           }]
         }]
       }
-    }
+    },
   }
 </script>
 

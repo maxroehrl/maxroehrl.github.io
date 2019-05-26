@@ -27,7 +27,7 @@
     </div>
     <div v-if="project.links.length" class="bottom-links">
       <a v-for="link in project.links" :href="link.url" class="bottom-link">
-        <img v-if="link.img" :src="link.img" :alt="link.text" class="small-icon"/>
+        <component v-if="link.img" :is="link.img" class="small-icon"/>
         <p>{{ link.text }}</p>
       </a>
     </div>
@@ -35,6 +35,9 @@
 </template>
 
 <script>
+  import Github from '../assets/github.svg'
+  import Download from '../assets/download.svg'
+
   export default {
     name: "Project",
     props: {
@@ -42,7 +45,11 @@
         type: Object,
         required: true
       }
-    }
+    },
+    components: {
+      Github,
+      Download,
+    },
   }
 </script>
 

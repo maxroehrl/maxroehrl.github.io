@@ -5,7 +5,7 @@
     <ul>
       <li>
         <a v-for="link in links" :href="link.url" class="bottom-link">
-          <img :src="link.img" :alt="link.text" class="small-icon">
+          <component :is="link.img" class="small-icon" />
           <b>{{ link.text}}</b>
         </a>
       </li>
@@ -25,14 +25,18 @@
           {
             url: "mailto:max.roehrl11@gmail.com",
             text: "max.roehrl11@gmail.com",
-            img: "dist/mail.svg"
+            img: Mail
           }, {
             url: "https://github.com/maxroehrl",
             text: "Github Profile",
-            img: "dist/github.svg"
+            img: Github
           }
         ]
       }
+    },
+    components: {
+      Mail,
+      Github,
     }
   }
 </script>
@@ -43,6 +47,10 @@
     justify-content: center;
     align-items: center;
     margin: 0 .7em;
+  }
+
+  .small-icon:hover {
+    fill: #ff5722;
   }
 
   .small-icon {

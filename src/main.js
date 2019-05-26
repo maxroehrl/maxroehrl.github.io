@@ -10,7 +10,7 @@ new Vue({
 $(document).ready(function () {
   // Scroll to the id if a navigation link is clicked.
   $(".navbar > a").on("click", function (event) {
-    var hash = this.hash;
+    const hash = this.hash;
     if (hash !== "") {
       event.preventDefault();
       $("html, body").animate({
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
   $("img").click(function () {
     overlay.fadeTo(600, 1).css({
-      backgroundImage: "url(" + this.src + ")"
+      backgroundImage: `url(${this.src})`
     });
   });
   overlay.click(function () {
