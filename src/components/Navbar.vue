@@ -3,7 +3,7 @@
     <logo :size="400" url="." />
     <a v-for="link in links"
        :key="link.url"
-       :href="link.url"
+       v-scroll-to="link.url"
        class="underline">{{ link.text }}</a>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
       font-size: 1.8em;
       color: white;
       margin: 0 .7em;
+      cursor: pointer;
     }
   }
 

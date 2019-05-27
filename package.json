@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-scrollto": "^2.15.0"
   },
   "browserslist": [
     "> 1%",

@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 import $ from 'jquery';
+import vueScrollto from 'vue-scrollto';
+
+Vue.use(vueScrollto);
 
 new Vue({
   el: '#app',
@@ -8,20 +11,6 @@ new Vue({
 });
 
 $(document).ready(function() {
-  // Scroll to the id if a navigation link is clicked.
-  $('.navbar > a').on('click', function(event) {
-    const hash = this.hash;
-    if (hash !== '') {
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top,
-      }, 800, function() {
-        window.location.hash = hash;
-      });
-    }
-  });
-  $('main a[href ^= \'http\']').attr('target', '_blank');
-
   // Image overlay
   const overlay = $('#overlay');
 
