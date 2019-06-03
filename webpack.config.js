@@ -72,7 +72,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        loader: ['babel-loader', 'vue-svg-loader'],
       },
     ],
   },
