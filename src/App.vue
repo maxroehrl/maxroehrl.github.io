@@ -4,7 +4,6 @@
       <navbar :links="navbarLinks" />
     </header>
     <main>
-      <overlay />
       <project-list />
       <contact />
     </main>
@@ -16,7 +15,6 @@
 </template>
 
 <script>
-import Overlay from './components/Overlay';
 import ProjectList from './components/ProjectList';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
@@ -25,7 +23,6 @@ import Copyright from './components/Copyright';
 export default {
   name: 'App',
   components: {
-    Overlay,
     ProjectList,
     Navbar,
     Contact,
