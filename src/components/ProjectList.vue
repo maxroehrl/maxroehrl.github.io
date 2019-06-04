@@ -2,10 +2,9 @@
   <section id="projects">
     <h1>Projects</h1>
     <ul>
-      <project
-        v-for="project in projects"
-        :key="project.id"
-        :project="project" />
+      <project v-for="project in projects"
+               :key="project.id"
+               :project="project" />
     </ul>
   </section>
 </template>
@@ -32,6 +31,7 @@ import LanteChat from '../assets/lante_chat_screenshot.png';
 import LanteHistory from '../assets/lante_history_screenshot.png';
 import D3 from '../assets/d3.png';
 import Simplification from '../assets/simplification.jpg';
+import Prismatik from '../assets/prismatik.png';
 
 export default {
   name: 'ProjectList',
@@ -290,7 +290,7 @@ export default {
         id: 10,
         title: 'Surface Mesh Simplification',
         full: false,
-        description: `<p>Reduces the number of vertices, faces, and edges of a mesh</p>
+        description: `<p>Reduces the number of vertices, faces, and edges of a 3D mesh</p>
                         <ul>
                           <li>Written in C++</li>
                           <li>Acts as a plugin of the <a href="https://www.cgal.org/">CGAL</a> Polyhedron3 Demo</li>
@@ -332,18 +332,44 @@ export default {
         title: 'This website',
         full: false,
         description: `<ul>
-                          <li>Hosted on Github Pages</li>
+                          <li>Hosted on <a href="https://pages.github.com/">Github Pages</a></li>
                           <li>Bundled with <a href="https://webpack.js.org/">Webpack</a></li>
                           <li>Modularization with <a href="https://vuejs.org/">Vue</a> Components</li>
-                          <li>CSS flex box</li>
+                          <li>ES6 transpiling with <a href="https://babeljs.io/">Babel</a></li>
+                          <li>Code formatting with <a href="https://eslint.org/">ESLint</a></li>
+                          <li>CSS <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">flex box</a></li>
                           <li>CSS media queries for responsive design</li>
-                          <li>CSS animations</li>
+                          <li>SVG inlining and animations</li>
                         </ul>`,
         screenshots: [],
         links: [{
           text: 'Github',
           img: Github,
           url: 'https://github.com/maxroehrl/maxroehrl.github.io',
+        }],
+      }, {
+        id: 13,
+        title: 'Nvidia Framebuffer Capture Support for Prismatik',
+        full: false,
+        description: `<p>Prismatik is the PC software which is part of Lightpack and can control LED strips.</p>
+                      <ul>
+                        <li>Hardware accelerated framebuffer capturing with Nvidia Geforce graphic cards</li>
+                        <li>Uses the <a href="https://developer.nvidia.com/capture-sdk">Nvidia Capture SDK</a></li>
+                        <li>Downscaling support for a smaller CPU impact</li>
+                        <li>Selectable from the GUI</li>
+                        <li>Prismatik uses <a href="https://www.qt.io/ui-framework">Qt UI</a> and is written in C++</li>
+                      </ul>`,
+        screenshots: [{
+          url: Prismatik,
+        }],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/Lightpack',
+        }, {
+          text: 'Pull request',
+          img: Github,
+          url: 'https://github.com/psieg/Lightpack/pull/258',
         }],
       }],
     };
