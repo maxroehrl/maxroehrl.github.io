@@ -6,10 +6,9 @@
     </div>
     <div v-if="project.screenshots.length === 1"
          class="bottom-links">
-      <img :src="project.screenshots[0].url"
-           :alt="project.screenshots[0].caption"
-           class="screenshot"
-           :class="project.screenshots[0].class">
+      <expendable-image :src="project.screenshots[0].url"
+                        :alt="project.screenshots[0].caption"
+                        :classes="project.screenshots[0].class" />
     </div>
     <div v-else-if="project.screenshots.length > 1"
          class="bottom-links">
@@ -19,16 +18,15 @@
         <div class="bottom-group-hor">
           <img v-if="screenshot.thumb"
                :src="screenshot.thumb"
-               alt="screenshot.caption"
+               :alt="screenshot.caption"
                class="small-icon">
           <h3 v-if="screenshot.caption">
             {{ screenshot.caption }}
           </h3>
         </div>
-        <img :src="screenshot.url"
-             :alt="screenshot.caption"
-             class="screenshot"
-             :class="screenshot.class">
+        <expendable-image :src="screenshot.url"
+                          :alt="screenshot.caption"
+                          :classes="screenshot.class" />
       </div>
     </div>
     <div v-if="project.links.length"
@@ -39,7 +37,7 @@
          class="bottom-link">
         <component :is="link.img"
                    v-if="link.img"
-                   class="small-icon" />
+                   class="smaller-icon" />
         <p>{{ link.text }}</p>
       </a>
     </div>
@@ -47,6 +45,7 @@
 </template>
 
 <script>
+import ExpendableImage from './ExpendableImage';
 import Github from '../assets/github.svg';
 import Download from '../assets/download.svg';
 
@@ -55,6 +54,7 @@ export default {
   components: {
     Github,
     Download,
+    ExpendableImage,
   },
   props: {
     project: {
@@ -119,7 +119,7 @@ export default {
     &:hover {
       color: $accent;
 
-      .small-icon {
+      .small-icon, .smaller-icon {
         fill: $accent;
       }
     }
@@ -132,29 +132,14 @@ export default {
     align-content: flex-start;
   }
 
-  .screenshot {
-    align-self: center;
-    margin: .5em;
-    width: 240px;
-  }
-
-  .theme-screenshot {
-    margin: 0 .5em;
-    width: 250px;
-  }
-
-  .lante-screenshot {
-    margin: 0 .5em .5em .5em;
-    width: 420px;
-    height: 280px;
-  }
-
-  .big-screenshot {
-    margin: .3em;
-    width: 470px;
-  }
-
   .small-icon {
+    width: 3.5em;
+    height: 3.5em;
+    margin: 0 1em 0 0;
+    @include transition(fill);
+  }
+
+  .smaller-icon {
     width: 2em;
     height: 2em;
     margin: 0 .5em;
@@ -166,12 +151,7 @@ export default {
       flex: 0 1 100%;
     }
 
-    .lante-screenshot {
-      width: 95%;
-      height: auto;
-    }
-
-    .bottom-group-ver, .big-screenshot, .theme-screenshot {
+    .bottom-group-ver {
       width: 100%;
     }
 
