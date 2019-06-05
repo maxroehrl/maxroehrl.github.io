@@ -34,6 +34,7 @@
         }
       }],
       "vue/no-v-html": 0,
-      "max-len": 0
+      "max-len": 0,
+      "linebreak-style": 0
     }
 }
