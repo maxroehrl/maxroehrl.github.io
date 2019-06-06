@@ -102,10 +102,10 @@ export default {
     cursor: zoom-out;
 
     img {
-      width: 100%;
+      width: auto;
       height: auto;
-      max-width: 1200px;
-      max-height: 100%;
+      max-width: 100vw;
+      max-height: 100vh;
       object-fit: contain;
       margin: 0 auto;
     }
@@ -131,12 +131,10 @@ export default {
   }
 
   .screenshot {
-    margin: .5em;
     width: 300px;
   }
 
   .big-screenshot {
-    margin: .3em;
     width: 100%;
   }
 
@@ -146,19 +144,15 @@ export default {
   }
 
   .lante-screenshot {
-    margin: 0 .5em;
+    margin: 0 .5em .5em .5em;
     width: 420px;
     height: 280px;
   }
 
   @media only screen and (max-width: 600px) {
-    .lante-screenshot {
+    .screenshot, .big-screenshot, .theme-screenshot, .lante-screenshot {
       width: 80vw;
       height: auto;
-    }
-
-    .big-screenshot, .theme-screenshot {
-      width: 100%;
     }
   }
 </style>
