@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import "../colors";
 
   .bottom-links {
@@ -131,6 +131,14 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
+
+    a {
+      text-decoration: underline solid #e2ecec;
+
+      &:hover {
+        text-decoration: underline solid $grey;
+      }
+    }
   }
 
   .small-icon {
