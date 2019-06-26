@@ -7,8 +7,7 @@
            :key="link.url"
            :href="link.url"
            class="bottom-link">
-          <component :is="link.img"
-                     class="small-icon" />
+          <component :is="link.img" class="small-icon" />
           <b>{{ link.text }}</b>
         </a>
       </li>
@@ -71,6 +70,7 @@ export default {
     margin: .5em;
 
     &:hover {
+      transform: translate(10px, 0);
       color: $accent;
     }
   }
