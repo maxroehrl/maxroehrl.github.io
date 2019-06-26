@@ -65,10 +65,20 @@ export default {
     display: inline-block;
     color: $accent;
     text-decoration: none;
-    @include transition(color);
+    @include transition(all);
 
     &:hover {
-      color: $accentDark;
+      color: $grey;
+    }
+  }
+
+  .top-content {
+    a {
+      text-decoration: underline solid #e2ecec;
+
+      &:hover {
+        text-decoration: underline solid $grey;
+      }
     }
   }
 
@@ -155,6 +165,13 @@ export default {
         0 8px 24px 0 rgba(0, 0, 0, .2);
       }
     }
+  }
+
+  section {
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="317" viewBox="0 0 20 317" fill="none" xmlns="http://www.w3.org/2000/svg"> <g opacity="0.1"> <path d="M4.45203 256.184C2.54551 256.184 1 254.648 1 252.753C1 250.858 2.54551 249.322 4.45203 249.322C6.35854 249.322 7.9043 250.858 7.9043 252.753C7.9043 254.648 6.35854 256.184 4.45203 256.184Z" fill="url(%23paint0_linear)');
   }
 
   @media only screen and (max-width: 600px) {
