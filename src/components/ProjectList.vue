@@ -2,7 +2,7 @@
   <section id="projects">
     <h1>Projects</h1>
     <ul>
-      <project v-for="project in projects"
+      <project v-for="project in projects.sort((a, b) => a.id > b.id ? 1 : -1)"
                :key="project.id"
                :project="project" />
     </ul>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       projects: [{
-        id: 0,
+        id: 28,
         title: 'CyanogenMod Themes',
         full: true,
         description: `<p>Themes for CyanogenMod 12.x and 13 available on Google Play</p>
@@ -77,7 +77,7 @@ export default {
         },
         ],
       }, {
-        id: 1,
+        id: 30,
         title: 'Lante',
         full: true,
         description: `<p>A Local Area Network Text Editor for Windows, Linux and OSX where people can work together.</p>
@@ -116,7 +116,7 @@ export default {
           url: 'https://drive.google.com/file/d/1tghPESPn-aNBJlivI5z8g8BZkuB2V9VA/view?usp=sharing',
         }],
       }, {
-        id: 2,
+        id: 40,
         title: 'Transformer Toolkit',
         full: false,
         description: `<p>A toolkit written for the Asus Transformer Pad TF300T, TF700T, ME301T and the Google Nexus 5 (CAF)</p>
@@ -140,7 +140,7 @@ export default {
           url: 'http://forum.xda-developers.com/showthread.php?t=2094746',
         }],
       }, {
-        id: 3,
+        id: 32,
         title: 'Soundboard',
         full: false,
         description: `<p>Android app playing sound files from storage</p>
@@ -148,7 +148,7 @@ export default {
                           <li>Written in Java</li>
                           <li>Add sounds as favorites</li>
                           <li>Dynamically adds tabs and cards for sounds</li>
-                          <li>Uses <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android support library</a></li>
+                          <li>Uses <a href="https://developer.android.com/jetpack/androidx/">AndroidX library</a></li>
                           <li>Uses <a href="https://github.com/wnafee/vector-compat">vector compat library</a></li>
                         </ul>`,
         screenshots: [{
@@ -164,7 +164,7 @@ export default {
           url: 'https://github.com/maxroehrl/Soundboard/releases',
         }],
       }, {
-        id: 4,
+        id: 25,
         title: 'Vibrance Utility',
         full: false,
         description: `<p>A Win32 application to change the digital vibrance of AMD and Nvidia graphic cards.</p>
@@ -186,7 +186,7 @@ export default {
           url: 'https://github.com/maxroehrl/VibranceUtility/releases',
         }],
       }, {
-        id: 5,
+        id: 50,
         title: 'Dolphin Updater',
         full: false,
         description: `<p>A script which updates your Dolphin Emulator installation</p>
@@ -215,7 +215,7 @@ export default {
           url: 'https://github.com/maxroehrl/DolphinUpdater/releases',
         }],
       }, {
-        id: 6,
+        id: 60,
         title: 'Abalone',
         full: false,
         description: `<p>A Java abalone board game where the player can play against the AI.</p>
@@ -237,7 +237,7 @@ export default {
           url: 'https://github.com/maxroehrl/Abalone/releases',
         }],
       }, {
-        id: 7,
+        id: 130,
         title: 'TCP Chat',
         full: false,
         description: `<p>A chat program to communicate with other instances of the program.</p>
@@ -261,7 +261,7 @@ export default {
           url: 'https://github.com/maxroehrl/TCPChat/releases',
         }],
       }, {
-        id: 8,
+        id: 80,
         title: 'DirDiff',
         full: false,
         description: `<p>Save checksums of all files in the source directory to the SFV file.</p>
@@ -275,7 +275,7 @@ export default {
           url: 'https://gist.github.com/maxroehrl/7e7dba05058b66e286adad7edcb257db',
         }],
       }, {
-        id: 9,
+        id: 90,
         title: 'DiffCopy',
         full: false,
         description: `<p>A python script for syncing source and backup directory (e.g. generate a backup of your music files)</p>
@@ -287,7 +287,7 @@ export default {
           url: 'https://gist.github.com/maxroehrl/f3c0c255118ff891e1336e6347d4c103',
         }],
       }, {
-        id: 10,
+        id: 21,
         title: 'Surface Mesh Simplification',
         full: false,
         description: `<p>Reduces the number of vertices, faces, and edges of a 3D mesh</p>
@@ -307,7 +307,7 @@ export default {
           url: 'https://github.com/maxroehrl/Surface_mesh_simplification',
         }],
       }, {
-        id: 11,
+        id: 19,
         title: 'Random data generation',
         full: false,
         description: `<p>Generates random points in 2D and 3D</p>
@@ -328,7 +328,7 @@ export default {
           url: 'https://jsfiddle.net/gv6uydqe/93/',
         }],
       }, {
-        id: 12,
+        id: 3,
         title: 'This website',
         full: false,
         description: `<ul>
@@ -348,28 +348,54 @@ export default {
           url: 'https://github.com/maxroehrl/maxroehrl.github.io',
         }],
       }, {
-        id: 13,
+        id: 17,
         title: 'Nvidia Framebuffer Capture Support for Prismatik',
         full: false,
         description: `<p>Prismatik is the PC software which is part of Lightpack and can control LED strips.</p>
                       <ul>
-                        <li>Hardware accelerated framebuffer capturing with Nvidia Geforce graphic cards</li>
+                        <li>Hardware accelerated framebuffer capturing with Nvidia graphic cards</li>
                         <li>Uses the <a href="https://developer.nvidia.com/capture-sdk">Nvidia Capture SDK</a></li>
                         <li>Downscaling support for a smaller CPU impact</li>
                         <li>Selectable from the GUI</li>
                         <li>Prismatik uses <a href="https://www.qt.io/ui-framework">Qt UI</a> and is written in C++</li>
-                      </ul>`,
+                      </ul>
+                      <p style="color: #ff5722">PR was closed because of licensing issues!</p>`,
         screenshots: [{
           url: Prismatik,
         }],
         links: [{
-          text: 'Github',
-          img: Github,
-          url: 'https://github.com/maxroehrl/Lightpack',
-        }, {
           text: 'Pull request',
           img: Github,
           url: 'https://github.com/psieg/Lightpack/pull/258',
+        }, {
+          text: 'Issue',
+          img: Github,
+          url: 'https://github.com/psieg/Lightpack/issues/235',
+        }, {
+          text: 'Download',
+          img: Download,
+          url: 'https://psieg.de/jenkins/job/Prismatik_Windows/471/',
+        }],
+      }, {
+        id: 15,
+        title: 'Raspberry Pi Photobox',
+        full: false,
+        description: `<p>A photobox for the Raspberry Pi which also has the Pi Camera, a (touch) display and three GPIO buttons.</p>
+                      <ul>
+                        <li>Uses <a href="https://picamera.readthedocs.io/en/latest/api_camera.html">picamera</a> library for its user interface</li>
+                        <li>Can capture single image, 3 second burst shot as GIF and 4 images combined on a card</li>
+                        <li>Touch and GPIO button support</li>
+                        <li>User can select different filters (bw, sepia, cartoon, ...)</li>
+                        <li>Canon Selphy photo printer support</li>
+                        <li>Script can be configured via config file</li>
+                        <li>Pictures get saved to USB stick</li>
+                      </ul>
+                      <code>sudo -E python3 Photobooth/photobooth.py</code>`,
+        screenshots: [],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/Photobooth',
         }],
       }],
     };
