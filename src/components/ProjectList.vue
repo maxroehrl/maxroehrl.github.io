@@ -85,9 +85,9 @@ export default {
                         <ul>
                           <li>Written in Java 8</li>
                           <li>Uses Swing for the UI</li>
-                          <li>Unit test with <a href="https://junit.org/junit5/">JUnit5</a></li>
-                          <li>Uses <a href="https://github.com/bobbylight/RSyntaxTextArea">RSyntaxTestArea</a></li>
-                          <li>Uses <a href="https://github.com/FasterXML/jackson">Jackson</a></li>
+                          <li>Unit test with <a target="_blank" href="https://junit.org/junit5/">JUnit5</a></li>
+                          <li>Uses <a target="_blank" href="https://github.com/bobbylight/RSyntaxTextArea">RSyntaxTestArea</a></li>
+                          <li>Uses <a target="_blank" href="https://github.com/FasterXML/jackson">Jackson</a></li>
                           <li>Encrypted socket communication</li>
                           <li>Custom file format which stores inline comments and the document history</li>
                           <li>Custom keyboard shortcuts</li>
@@ -123,7 +123,7 @@ export default {
                         <ul>
                           <li>Written in C# with the .NET Framework</li>
                           <li>Uses WPF for the UI</li>
-                          <li>Communication with Android devices trough <a href="https://developer.android.com/studio/command-line/adb.html">ADB</a></li>
+                          <li>Communication with Android devices trough <a target="_blank" href="https://developer.android.com/studio/command-line/adb.html">ADB</a></li>
                           <li>Download device specific recovery images from Google Drive</li>
                           <li>Automatic update trough Google Drive</li>
                         </ul>`,
@@ -148,8 +148,8 @@ export default {
                           <li>Written in Java</li>
                           <li>Add sounds as favorites</li>
                           <li>Dynamically adds tabs and cards for sounds</li>
-                          <li>Uses <a href="https://developer.android.com/jetpack/androidx/">AndroidX library</a></li>
-                          <li>Uses <a href="https://github.com/wnafee/vector-compat">vector compat library</a></li>
+                          <li>Uses <a target="_blank" href="https://developer.android.com/jetpack/androidx/">AndroidX library</a></li>
+                          <li>Uses <a target="_blank" href="https://github.com/wnafee/vector-compat">vector compat library</a></li>
                         </ul>`,
         screenshots: [{
           url: Soundboard,
@@ -170,8 +170,8 @@ export default {
         description: `<p>A Win32 application to change the digital vibrance of AMD and Nvidia graphic cards.</p>
                           <ul>
                             <li>Written in C++</li>
-                            <li>Uses <a href="http://developer.amd.com/tools-and-sdks/graphics-development/display-library-adl-sdk/">AMD Display Library</a></li>
-                            <li>Uses <a href="http://docs.nvidia.com/gameworks/content/gameworkslibrary/coresdk/nvapi/index.html/">Nvidia NvAPI</a></li>
+                            <li>Uses <a target="_blank" href="https://github.com/GPUOpen-LibrariesAndSDKs/display-library">AMD Display Library</a></li>
+                            <li>Uses <a target="_blank" href="http://docs.nvidia.com/gameworks/content/gameworkslibrary/coresdk/nvapi/index.html">Nvidia NvAPI</a></li>
                           </ul>`,
         screenshots: [{
           url: VibranceUtility,
@@ -293,8 +293,8 @@ export default {
         description: `<p>Reduces the number of vertices, faces, and edges of a 3D mesh</p>
                         <ul>
                           <li>Written in C++</li>
-                          <li>Acts as a plugin of the <a href="https://www.cgal.org/">CGAL</a> Polyhedron3 Demo</li>
-                          <li>Uses <a href="https://www.qt.io/ui-framework">Qt UI</a> for the user interface</li>
+                          <li>Acts as a plugin of the <a target="_blank" href="https://www.cgal.org/">CGAL</a> Polyhedron3 Demo</li>
+                          <li>Uses <a target="_blank" href="https://www.qt.io/design">Qt UI</a> for the user interface</li>
                           <li>Color difference can be used as a simplification constraint</li>
                           <li>Different simplification options can be selected</li>
                         </ul>`,
@@ -312,7 +312,7 @@ export default {
         full: false,
         description: `<p>Generates random points in 2D and 3D</p>
                         <ul>
-                          <li>Visualization with the <a href="https://d3js.org/">D3.js</a> library</li>
+                          <li>Visualization with the <a target="_blank" href="https://d3js.org/">D3.js</a> library</li>
                           <li>Variable spread, number of points and range</li>
                           <li>Used for generating demo data</li>
                         </ul>`,
@@ -332,12 +332,12 @@ export default {
         title: 'This website',
         full: false,
         description: `<ul>
-                          <li>Hosted on <a href="https://pages.github.com/">Github Pages</a></li>
-                          <li>Bundled with <a href="https://webpack.js.org/">Webpack</a></li>
-                          <li>Modularization with <a href="https://vuejs.org/">Vue</a> Components</li>
-                          <li>ES6 transpiling with <a href="https://babeljs.io/">Babel</a></li>
-                          <li>Code formatting with <a href="https://eslint.org/">ESLint</a></li>
-                          <li>CSS <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">flex box</a></li>
+                          <li>Hosted on <a target="_blank" href="https://pages.github.com/">Github Pages</a></li>
+                          <li>Bundled with <a target="_blank" href="https://webpack.js.org/">Webpack</a></li>
+                          <li>Modularization with <a target="_blank" href="https://vuejs.org/">Vue</a> Components</li>
+                          <li>ES6 transpiling with <a target="_blank" href="https://babeljs.io/">Babel</a></li>
+                          <li>Code formatting with <a target="_blank" href="https://eslint.org/">ESLint</a></li>
+                          <li>CSS <a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">flex box</a></li>
                           <li>CSS media queries for responsive design</li>
                           <li>SVG inlining and animations</li>
                         </ul>`,
@@ -354,10 +354,10 @@ export default {
         description: `<p>Prismatik is the PC software which is part of Lightpack and can control LED strips.</p>
                       <ul>
                         <li>Hardware accelerated framebuffer capturing with Nvidia graphic cards</li>
-                        <li>Uses the <a href="https://developer.nvidia.com/capture-sdk">Nvidia Capture SDK</a></li>
+                        <li>Uses the <a target="_blank" href="https://developer.nvidia.com/capture-sdk">Nvidia Capture SDK</a></li>
                         <li>Downscaling support for a smaller CPU impact</li>
                         <li>Selectable from the GUI</li>
-                        <li>Prismatik uses <a href="https://www.qt.io/ui-framework">Qt UI</a> and is written in C++</li>
+                        <li>Prismatik uses <a target="_blank" href="https://www.qt.io/ui-framework">Qt UI</a> and is written in C++</li>
                       </ul>
                       <p style="color: #ff5722">PR was closed because of licensing issues!</p>`,
         screenshots: [{
@@ -382,7 +382,7 @@ export default {
         full: false,
         description: `<p>A photobox for the Raspberry Pi which also has the Pi Camera, a (touch) display and three GPIO buttons.</p>
                       <ul>
-                        <li>Uses <a href="https://picamera.readthedocs.io/en/latest/api_camera.html">picamera</a> library for its user interface</li>
+                        <li>Uses <a target="_blank" href="https://picamera.readthedocs.io/en/latest/api_camera.html">picamera</a> library for its user interface</li>
                         <li>Can capture single image, 3 second burst shot as GIF and 4 images combined on a card</li>
                         <li>Touch and GPIO button support</li>
                         <li>User can select different filters (bw, sepia, cartoon, ...)</li>

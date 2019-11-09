@@ -34,7 +34,8 @@
       <a v-for="link in project.links"
          :key="link.url"
          :href="link.url"
-         class="bottom-link">
+         class="bottom-link"
+         target="_blank">
         <component :is="link.img"
                    v-if="link.img"
                    class="smaller-icon" />
