@@ -2,7 +2,7 @@
   <section id="projects">
     <h1>Projects</h1>
     <ul>
-      <project v-for="project in projects.sort((a, b) => a.id > b.id ? 1 : -1)"
+      <project v-for="project in projects"
                :key="project.id"
                :project="project" />
     </ul>
@@ -397,7 +397,7 @@ export default {
           img: Github,
           url: 'https://github.com/maxroehrl/Photobooth',
         }],
-      }],
+      }].sort((a, b) => a.id > b.id ? 1 : -1),
     };
   },
 };
