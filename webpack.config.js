@@ -59,9 +59,7 @@ module.exports = {
       {
         test: /\.js$/,
         use: ['babel-loader', 'eslint-loader'],
-        exclude: (file) => (
-          /node_modules/.test(file)
-        ),
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpg|gif)$/,
