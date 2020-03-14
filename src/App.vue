@@ -9,8 +9,8 @@
     </main>
     <footer>
       <navbar :links="navbarLinks" />
+      <copyright />
     </footer>
-    <copyright />
   </div>
 </template>
 
