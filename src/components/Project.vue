@@ -76,7 +76,7 @@ export default {
     flex-wrap: wrap;
     padding-top: 1em;
     margin-top: 1em;
-    border-top: 1px solid #c2c2c2;
+    border-top: 1px solid $light-card-border;
 
     a {
       @include transition(color);
@@ -91,15 +91,15 @@ export default {
     align-items: center;
     max-width: 100%;
     margin: 1em .3em;
-    background-color: #f5f5f5;
+    background-color: $light-card-bg2;
     border-radius: 6px;
-    border: 1px solid #c2c2c2;
-    box-shadow: 0 0 0 rgba(38, 50, 56, .2);
+    border: 1px solid $light-card-border;
+    box-shadow: 0 0 0 $light-shadow;
     transition: all .6s ease;
 
     &:hover {
-      box-shadow: 0 0 2px rgba(38, 50, 56, .2),
-      0 8px 24px 0 rgba(0, 0, 0, .2);
+      box-shadow: 0 0 2px $light-shadow,
+                  0 8px 24px 0 $light-shadow2;
       transform: translate(0, -10px);
     }
   }
@@ -112,18 +112,15 @@ export default {
   }
 
   .bottom-link {
-    color: #666;
+    color: $light-font;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 .7em;
+    fill: currentColor;
 
     &:hover {
       color: $accent;
-
-      .small-icon, .smaller-icon {
-        fill: $accent;
-      }
     }
   }
 
@@ -134,10 +131,10 @@ export default {
     align-content: flex-start;
 
     a {
-      text-decoration: underline solid #e2ecec;
+      text-decoration: underline solid $light-underline;
 
       &:hover {
-        text-decoration: underline solid $grey;
+        text-decoration-color: $light-underline-hover;
       }
     }
   }
@@ -167,6 +164,35 @@ export default {
 
     .bottom-link {
       margin: 0;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bottom-links {
+      border-top-color: $dark-card-border;
+    }
+
+    .top-content a {
+      text-decoration-color: $dark-underline;
+
+      &:hover {
+        text-decoration-color: $dark-underline-hover;
+      }
+    }
+
+    .bottom-group-ver {
+      background-color: $dark-bg;
+      border-color: $dark-card-border;
+      box-shadow: 0 0 0 $dark-shadow;
+
+      &:hover {
+        box-shadow: 0 0 2px $dark-shadow,
+                    0 8px 24px 0 $dark-shadow2;
+      }
+    }
+
+    .bottom-link {
+      color: $dark-font;
     }
   }
 </style>

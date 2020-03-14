@@ -56,8 +56,8 @@ export default {
     min-height: 100%;
     min-width: 268px;
     flex-direction: column;
-    color: #666;
-    background-color: #f1f1f1;
+    color: $light-font;
+    background-color: $light-bg;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -69,7 +69,7 @@ export default {
     @include transition(all);
 
     &:hover {
-      color: $grey;
+      color: $light-font-hover;
     }
   }
 
@@ -81,7 +81,6 @@ export default {
 
   h1 {
     font-weight: bold;
-    color: #444;
     margin: 1em 0 .5em 0;
     font-size: 3em;
     text-align: center;
@@ -111,7 +110,7 @@ export default {
 
   code {
     padding: .4em;
-    background-color: #e9e9e9;
+    background-color: $light-code-bg;
   }
 
   ::selection {
@@ -121,7 +120,7 @@ export default {
 
   header {
     border-bottom: 1px solid $accentDark;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, .16);
+    box-shadow: 0 5px 5px $light-shadow2;
   }
 
   footer {
@@ -143,18 +142,18 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: white;
-        border: 1px solid #c2c2c2;
+        background-color: $light-card-bg;
+        border: 1px solid $light-card-border;
         border-radius: 6px;
-        box-shadow: 0 0 0 rgba(38, 50, 56, .2);
+        box-shadow: 0 0 0 $light-shadow;
         padding: 1em;
         margin: 1em;
         transition: all .6s ease;
       }
 
       > li:hover {
-        box-shadow: 0 0 2px rgba(38, 50, 56, .2),
-        0 8px 24px 0 rgba(0, 0, 0, .2);
+        box-shadow: 0 0 2px $light-shadow,
+                    0 8px 24px 0 $light-shadow2;
       }
     }
   }
@@ -166,6 +165,36 @@ export default {
       > li {
         border-radius: 0;
         margin: 1em 0;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: $dark-bg;
+      color: $dark-font;
+    }
+
+    a:hover {
+      color: $dark-font-hover;
+    }
+
+    code {
+      background: $dark-code-bg;
+    }
+
+    header {
+      box-shadow: 0 5px 5px $dark-shadow2;
+    }
+
+    section > ul > li {
+      background: $dark-card-bg;
+      border-color: $dark-card-border;
+      box-shadow: 0 0 0 $dark-shadow;
+
+      &:hover {
+        box-shadow: 0 0 2px $dark-shadow,
+                    0 8px 24px 0 $dark-shadow2;
       }
     }
   }

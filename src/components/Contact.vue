@@ -51,10 +51,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 .7em;
-
-    &:hover .small-icon {
-      fill: $accent;
-    }
+    fill: currentColor;
   }
 
   .small-icon {
@@ -72,6 +69,12 @@ export default {
     &:hover {
       transform: translate(10px, 0);
       color: $accent;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #contact a {
+      color: $dark-font;
     }
   }
 </style>
