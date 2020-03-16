@@ -181,7 +181,7 @@ export default {
     }
 
     .bottom-group-ver {
-      background-color: $dark-bg;
+      background-color: $dark-card-bg2;
       border-color: $dark-card-border;
       box-shadow: 0 0 0 $dark-shadow;
 

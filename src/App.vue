@@ -4,6 +4,7 @@
       <navbar :links="navbarLinks" />
     </header>
     <main>
+      <particle-canvas />
       <project-list />
       <contact />
     </main>
@@ -19,6 +20,7 @@ import ProjectList from './components/ProjectList';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
 import Copyright from './components/Copyright';
+import ParticleCanvas from './components/ParticleCanvas';
 
 export default {
   name: 'App',
@@ -27,6 +29,7 @@ export default {
     Navbar,
     Contact,
     Copyright,
+    ParticleCanvas,
   },
   data() {
     return {
