@@ -13,8 +13,8 @@
                      v-model.number="config[key]"
                      type="number">
             </template>
-            <button @click="reset()">
-              Start/Reset
+            <button @click="reset(true)">
+              Restart
             </button>
           </div>
           <div class="counts-wrapper">
@@ -100,12 +100,12 @@ export default {
   mounted() {
     this.init();
     this.drawParticles(this.particles, this.particleContext);
-    window.addEventListener('resize', this.reset.bind(this));
+    window.addEventListener('resize', this.reset.bind(this, false));
     this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
   },
 
   beforeDestroy() {
-    window.removeEventListener('resize', this.reset.bind(this));
+    window.removeEventListener('resize', this.reset.bind(this, false));
   },
 
   methods: {
@@ -237,7 +237,7 @@ export default {
 
     canvasClicked() {
       if (this.stats.infected === 0) {
-        this.reset();
+        this.reset(true);
       } else {
         this.paused = !this.paused;
       }
@@ -245,13 +245,16 @@ export default {
 
     /**
      * Reset the plot and the particles and reinitialize.
+     *
+     * @param {boolean} restart Force restart flag
      */
-    reset() {
+    reset(restart) {
       clearTimeout(this.timeoutHandle);
       this.clear(this.plot.context, this.plot.width, this.plot.height);
       this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
       this.init();
       this.drawParticles(this.particles, this.particleContext);
+      this.paused = restart ? false : this.paused;
       this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
     },
 
