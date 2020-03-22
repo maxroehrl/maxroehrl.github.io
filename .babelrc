@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/env"],
-  "plugins": ["@babel/plugin-transform-object-assign"]
+  "plugins": ["@babel/plugin-transform-object-assign", "array-includes"]
 }
