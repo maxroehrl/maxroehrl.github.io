@@ -192,7 +192,7 @@ export default {
      * Draw all the particles on the canvas.
      *
      * @param {array} particles The list of all particles
-     * @param {object} context The canvas context
+     * @param {CanvasRenderingContext2D} context The canvas context
      */
     drawParticles(particles, context) {
       particles.forEach((particle) => {
@@ -203,7 +203,7 @@ export default {
     /**
      * Clear the canvas
      *
-     * @param {object} context The canvas context
+     * @param {CanvasRenderingContext2D} context The canvas context
      * @param {number} width The canvas width
      * @param {number} height The canvas height
      */
@@ -218,7 +218,7 @@ export default {
      * @param {number} y The y coordinate
      * @param {number} r The circle radius
      * @param {string} fill The fill color
-     * @param {object} context The canvas context
+     * @param {CanvasRenderingContext2D} context The canvas context
      */
     drawCircle(x, y, r, fill, context) {
       context.fillStyle = fill;
@@ -465,7 +465,7 @@ export default {
      *
      * @param {object} stats The infection statistics
      * @param {number} time The current time or x value
-     * @param {{fillStyle: string, fillRect: function}} context
+     * @param {CanvasRenderingContext2D} context The canvas context
      * @param {number} height Height of the canvas
      * @param {object} colors The colors used for healthy, infected and recovered particles
      */
