@@ -4,52 +4,37 @@
     <ul>
       <li>
         <div class="bottom-group-hor">
-          <div class="inputs-wrapper">
+          <div ref="inputs-wrapper" class="inputs-wrapper">
             <h3>Configuration</h3>
-            <label for="total">Total:</label>
-            <input id="total"
-                   v-model.number="count"
-                   type="number">
-            <label for="infected">Infected:</label>
-            <input id="infected"
-                   v-model.number="infected"
-                   type="number">
-            <label for="moving">Moving:</label>
-            <input id="moving"
-                   v-model.number="moving"
-                   type="number">
-            <label for="duration">Duration:</label>
-            <input id="duration"
-                   v-model.number="duration"
-                   type="number">
-            <label for="maxVelocity">Max Velo:</label>
-            <input id="maxVelocity"
-                   v-model.number="maxVelocity"
-                   type="number">
-            <label for="infectionProbability">Inf. Prob:</label>
-            <input id="infectionProbability"
-                   v-model.number="infectionProbability"
-                   type="number">
+            <template v-for="(_, key) in config">
+              <label :key="key + '_label'" :for="key">{{ key }}:</label>
+              <input :id="key"
+                     :key="key"
+                     v-model.number="config[key]"
+                     type="number">
+            </template>
             <button @click="reset()">
               Reset
             </button>
           </div>
+          <div class="counts-wrapper">
+            <h3>Counts</h3>
+            <template v-for="(_, key) in stats">
+              <label :key="key + '_label'">{{ key }}:</label>
+              <span :key="key" :style="{color: colors[key]}">{{ stats[key] }}</span>
+            </template>
+            <label>Time/Ticks:</label>
+            <span>{{ time }}</span>
+          </div>
           <div class="plot">
             <h3>Change over time</h3>
-            <div class="plot-wrapper">
+            <div class="plot-wrapper" :style="{height: plot.height + 'px'}">
               <canvas ref="plot" />
             </div>
           </div>
         </div>
         <div class="canvas-wrapper">
           <canvas ref="particles" @click="canvasClicked()" />
-        </div>
-        <h3>Counts</h3>
-        <div class="counts-wrapper">
-          Recovered: <span :style="{color: colors.recovered}">{{ recovered }}</span>
-          Infected: <span :style="{color: colors.infected}">{{ currInfected }}</span>
-          Healthy: <span :style="{color: colors.healthy}">{{ count - currInfected - recovered }}</span>
-          Time/Ticks: <span>{{ time }}</span>
         </div>
       </li>
     </ul>
@@ -64,22 +49,37 @@ export const State = Object.freeze({
 export default {
   data() {
     return {
+      FIXED_MASS: 9e9,
+      MOVING_MASS: 1,
+      paused: true,
+      time: 0,
+      particles: [],
       particleContext: undefined,
-      plotContext: undefined,
-      fixedMass: 9e9,
-      count: 200,
-      currInfected: 0,
-      radius: 6,
-      maxVelocity: 4,
-      recovered: 0,
-      quarantined: 0,
-      quarantineAfter: 70,
-      quarantineProb: 80,
-      moving: 80,
-      infectionProbability: 100,
-      infected: 1,
-      tickTime: 16,
-      duration: 200,
+      plot: {
+        context: undefined,
+        height: undefined,
+        width: undefined,
+        updateAfterTicks: 1,
+      },
+      config: {
+        totalPart: 200,
+        radiusPart: 6,
+        maxVelocity: 4,
+        tickTime: 16,
+        duration: 200,
+        quarantineAfter: 70,
+        quarantineProb: 80,
+        movingProp: 80,
+        infectionProb: 100,
+        infectedProp: 1,
+      },
+      stats: {
+        healthy: 200,
+        infected: 0,
+        recovered: 0,
+        quarantined: 0,
+        total: 200,
+      },
       colors: {
         healthy: '#9c9c9c',
         initiallyInfected: '#ff371c',
@@ -87,37 +87,35 @@ export default {
         recovered: '#21a84b',
         quarantined: '#ffa30f',
       },
-      paused: true,
-      time: 0,
-      plotUpdate: 3,
-      plotHeight: undefined,
-      plotWidth: undefined,
-      walls: undefined,
+      boundaries: {
+        minX: 0,
+        maxX: 0,
+        minY: 0,
+        maxY: 0,
+      },
     };
   },
 
   mounted() {
     const particleCanvas = this.$refs['particles'];
     this.particleContext = particleCanvas.getContext('2d');
-    this.width = particleCanvas.parentElement.clientWidth;
-    this.height = particleCanvas.parentElement.clientHeight;
-    particleCanvas.width = this.width;
-    particleCanvas.height = this.height;
-    this.walls = {
-      minX: 0,
-      maxX: this.width,
-      minY: 0,
-      maxY: this.height,
-    };
+    this.boundaries.maxX = particleCanvas.parentElement.clientWidth;
+    this.boundaries.maxY = particleCanvas.parentElement.clientHeight;
+    particleCanvas.width = this.boundaries.maxX;
+    particleCanvas.height = this.boundaries.maxY;
 
     const plotCanvas = this.$refs['plot'];
-    this.plotContext = plotCanvas.getContext('2d');
-    this.plotHeight = plotCanvas.parentElement.clientHeight;
-    this.plotWidth = plotCanvas.parentElement.clientWidth;
+    this.plot.context = plotCanvas.getContext('2d');
+    // Subtract the height of the header
+    this.plot.height = this.$refs['inputs-wrapper'].clientHeight - 38;
+    this.plot.width = plotCanvas.parentElement.clientWidth;
+    plotCanvas.width = this.plot.width;
+    plotCanvas.height = this.plot.height;
 
     this.init();
+    this.drawParticles(this.particles, this.particleContext);
     window.addEventListener('resize', this.reset.bind(this));
-    setInterval(this.tick.bind(this), this.tickTime);
+    setTimeout(this.tick.bind(this), this.config.tickTime);
   },
 
   beforeDestroy() {
@@ -130,29 +128,33 @@ export default {
      */
     init() {
       this.time = 0;
-      this.recovered = 0;
-      this.quarantined = 0;
+      this.stats = {
+        recovered: 0,
+        quarantined: 0,
+        infected: 0,
+        total: this.config.totalPart,
+      };
       this.particles = [];
-      this.currInfected = 0;
-      for (let i = 0; i < this.count; i++) {
-        let infected = this.random(0, 100) <= this.infected;
-        this.currInfected += infected ? 1 : 0;
-        const fixed = this.random(0, 100) >= this.moving;
-        const placement = this.getPlacement(this.particles, this.width, this.height, this.radius);
-        if (i + 1 === this.count && this.currInfected === 0) {
-          infected = true;
-          this.currInfected +=1;
+      for (let i = 0; i < this.config.totalPart; i++) {
+        let isInfected = this.random(0, 100) <= this.config.infectedProp;
+        this.stats.infected += isInfected ? 1 : 0;
+        const isFixed = this.random(0, 100) >= this.config.movingProp;
+        const placement = this.getPlacement(this.particles, this.boundaries.maxX, this.boundaries.maxY, this.config.radiusPart);
+        // We need at least one infected
+        if (i + 1 === this.config.totalPart && this.stats.infected === 0) {
+          isInfected = true;
+          this.stats.infected += 1;
         }
         const particle = {
           id: i,
           x: placement.x,
           y: placement.y,
-          vx: fixed ? 0 : this.getVelocity(this.maxVelocity),
-          vy: fixed ? 0 : this.getVelocity(this.maxVelocity),
-          r: this.radius,
-          fill: infected ? this.colors.initiallyInfected : this.colors.healthy,
-          state: infected ? this.duration : State.HEALTHY,
-          mass: fixed ? this.fixedMass: 1,
+          vx: isFixed ? 0 : this.getVelocity(this.config.maxVelocity),
+          vy: isFixed ? 0 : this.getVelocity(this.config.maxVelocity),
+          r: this.config.radiusPart,
+          fill: isInfected ? this.colors.initiallyInfected : this.colors.healthy,
+          state: isInfected ? this.config.duration : State.HEALTHY,
+          mass: isFixed ? this.FIXED_MASS: this.MOVING_MASS,
           collidedWith: [],
         };
         this.particles.push(particle);
@@ -164,27 +166,26 @@ export default {
      */
     tick() {
       if (!this.paused) {
-        this.clear(this.particleContext, this.width, this.height);
+        this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
         this.updateParticles(this.particles);
         this.drawParticles(this.particles, this.particleContext);
-        if (this.time % this.plotUpdate === 0) {
-          const stats = {
-            healthy: this.count - this.currInfected - this.recovered,
-            infected: this.currInfected, // - this.quarantined,
-            quarantined: this.quarantined,
-            recovered: this.recovered,
-            total: this.count,
-          };
+
+        // Update stats and draw plot
+        this.stats.healthy = this.stats.total - this.stats.infected - this.stats.recovered;
+        if (this.time <= this.plot.width && this.time % this.plot.updateAfterTicks === 0) {
+          const stats = Object.assign({}, this.stats);
+          stats.infected -= stats.quarantined;
           this.plotStats(
               stats,
-              this.time / this.plotUpdate,
-              this.plotContext,
-              this.plotHeight,
+              this.time / this.plot.updateAfterTicks,
+              this.plot.context,
+              this.plot.height,
               this.colors,
           );
         }
         this.time += 1;
       }
+      setTimeout(this.tick.bind(this), this.config.tickTime);
     },
 
     /**
@@ -228,7 +229,7 @@ export default {
     },
 
     canvasClicked() {
-      if (this.currInfected === 0) {
+      if (this.stats.infected === 0) {
         this.reset();
       } else {
         this.paused = !this.paused;
@@ -239,8 +240,8 @@ export default {
      * Reset the plot and the particles and reinitialize.
      */
     reset() {
-      this.clear(this.plotContext, this.plotWidth, this.plotHeight);
-      this.clear(this.particleContext, this.width, this.height);
+      this.clear(this.plot.context, this.plot.width, this.plot.height);
+      this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
       this.paused = false;
       this.init();
     },
@@ -265,10 +266,10 @@ export default {
               this.updateVelocities(particle, p);
               particle.collidedWith.push(p);
             });
-        this.processWallCollision(particle, this.walls);
-        this.infectParticle(particle, collisions, this.infectionProbability);
+        this.processWallCollision(particle, this.boundaries);
+        this.infectParticle(particle, collisions, this.config.infectionProb);
         this.recoverParticle(particle);
-        this.quarantineParticle(particle, this.quarantineProb);
+        this.quarantineParticle(particle, this.config.quarantineProb);
       });
     },
 
@@ -282,14 +283,14 @@ export default {
         particle.state -= 1;
         if (particle.state === State.HEALTHY) {
           if (particle.fill === this.colors.quarantined) {
-            this.quarantined -= 1;
+            this.stats.quarantined -= 1;
           }
           // Particle has recovered from infection
           particle.state = State.RECOVERED;
           particle.fill = this.colors.recovered;
-          this.recovered += 1;
-          this.currInfected -= 1;
-          if (this.currInfected === 0) {
+          this.stats.recovered += 1;
+          this.stats.infected -= 1;
+          if (this.stats.infected === 0) {
             this.paused = true;
           }
         }
@@ -304,15 +305,15 @@ export default {
      */
     quarantineParticle(particle, probability) {
       if (particle.state > State.HEALTHY &&
-          particle.state < this.duration - this.quarantineAfter &&
+          particle.state < this.config.duration - this.config.quarantineAfter &&
           particle.fill !== this.colors.quarantined &&
           this.random(0, 100) <= probability) {
         // Particle got quarantined
-        particle.mass = this.fixedMass;
+        particle.mass = this.FIXED_MASS;
         particle.fill = this.colors.quarantined;
         particle.vx = 0;
         particle.vy = 0;
-        this.quarantined += 1;
+        this.stats.quarantined += 1;
       }
     },
 
@@ -328,9 +329,9 @@ export default {
           collisions.filter((p) => p.state > State.HEALTHY).length &&
           this.random(0, 100) <= probability) {
         // Particle got infected
-        particle.state = this.duration;
+        particle.state = this.config.duration;
         particle.fill = this.colors.infected;
-        this.currInfected += 1;
+        this.stats.infected += 1;
       }
     },
 
@@ -498,6 +499,7 @@ export default {
 
   h3 {
     margin: 8px 0;
+    min-width: 135px;
   }
 
   .bottom-group-hor {
@@ -515,11 +517,15 @@ export default {
   }
 
   .inputs-wrapper {
-    width: 155px;
+    width: 265px;
   }
 
   .counts-wrapper {
-    width: 125px;
+    width: 135px;
+
+    label {
+      min-width: 80px;
+    }
   }
 
   .canvas-wrapper {
@@ -534,7 +540,6 @@ export default {
 
     .plot-wrapper {
       width: 100%;
-      height: 147px;
 
       canvas {
         width: 100%;
