@@ -14,7 +14,7 @@
                      type="number">
             </template>
             <button @click="reset()">
-              Reset
+              Start/Reset
             </button>
           </div>
           <div class="counts-wrapper">
@@ -52,6 +52,7 @@ export default {
       FIXED_MASS: 9e9,
       MOVING_MASS: 1,
       paused: true,
+      timeoutHandle: undefined,
       time: 0,
       particles: [],
       particleContext: undefined,
@@ -65,7 +66,7 @@ export default {
         totalPart: 200,
         radiusPart: 6,
         maxVelocity: 4,
-        tickTime: 16,
+        tickRate: 16,
         duration: 200,
         quarantineAfter: 70,
         quarantineProb: 80,
@@ -97,25 +98,10 @@ export default {
   },
 
   mounted() {
-    const particleCanvas = this.$refs['particles'];
-    this.particleContext = particleCanvas.getContext('2d');
-    this.boundaries.maxX = particleCanvas.parentElement.clientWidth;
-    this.boundaries.maxY = particleCanvas.parentElement.clientHeight;
-    particleCanvas.width = this.boundaries.maxX;
-    particleCanvas.height = this.boundaries.maxY;
-
-    const plotCanvas = this.$refs['plot'];
-    this.plot.context = plotCanvas.getContext('2d');
-    // Subtract the height of the header
-    this.plot.height = this.$refs['inputs-wrapper'].clientHeight - 38;
-    this.plot.width = plotCanvas.parentElement.clientWidth;
-    plotCanvas.width = this.plot.width;
-    plotCanvas.height = this.plot.height;
-
     this.init();
     this.drawParticles(this.particles, this.particleContext);
     window.addEventListener('resize', this.reset.bind(this));
-    setTimeout(this.tick.bind(this), this.config.tickTime);
+    this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
   },
 
   beforeDestroy() {
@@ -127,6 +113,7 @@ export default {
      * Initialize all particles and particle counts.
      */
     init() {
+      this.initCanvasSizes();
       this.time = 0;
       this.stats = {
         recovered: 0,
@@ -162,6 +149,26 @@ export default {
     },
 
     /**
+     * Initialize the canvas sizes.
+     */
+    initCanvasSizes() {
+      const particleCanvas = this.$refs['particles'];
+      this.particleContext = particleCanvas.getContext('2d');
+      this.boundaries.maxX = particleCanvas.parentElement.clientWidth;
+      this.boundaries.maxY = particleCanvas.parentElement.clientHeight;
+      particleCanvas.width = this.boundaries.maxX;
+      particleCanvas.height = this.boundaries.maxY;
+
+      const plotCanvas = this.$refs['plot'];
+      this.plot.context = plotCanvas.getContext('2d');
+      // Subtract the height of the header
+      this.plot.height = this.$refs['inputs-wrapper'].clientHeight - 38;
+      this.plot.width = plotCanvas.parentElement.clientWidth;
+      plotCanvas.width = this.plot.width;
+      plotCanvas.height = this.plot.height;
+    },
+
+    /**
      * Move all particles and update their state in the particle canvas.
      */
     tick() {
@@ -185,7 +192,7 @@ export default {
         }
         this.time += 1;
       }
-      setTimeout(this.tick.bind(this), this.config.tickTime);
+      this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
     },
 
     /**
@@ -240,10 +247,12 @@ export default {
      * Reset the plot and the particles and reinitialize.
      */
     reset() {
+      clearTimeout(this.timeoutHandle);
       this.clear(this.plot.context, this.plot.width, this.plot.height);
       this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
-      this.paused = false;
       this.init();
+      this.drawParticles(this.particles, this.particleContext);
+      this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
     },
 
     /**
@@ -506,6 +515,9 @@ export default {
     align-items: baseline;
     justify-content: flex-start;
     margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .inputs-wrapper, .counts-wrapper {
@@ -518,10 +530,12 @@ export default {
 
   .inputs-wrapper {
     width: 265px;
+    min-width: 175px;
   }
 
   .counts-wrapper {
-    width: 135px;
+    width: 180px;
+    min-width: 125px;
 
     label {
       min-width: 80px;
@@ -537,6 +551,7 @@ export default {
 
   .plot {
     width: 100%;
+    min-width: 600px;
 
     .plot-wrapper {
       width: 100%;
