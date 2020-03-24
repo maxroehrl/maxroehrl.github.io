@@ -60,6 +60,7 @@ export default {
       paused: true,
       timeoutHandle: undefined,
       time: 0,
+      oldWidth: window.innerWidth,
       particles: [],
       particleContext: undefined,
       plot: {
@@ -106,12 +107,12 @@ export default {
   mounted() {
     this.init();
     this.drawParticles(this.particles, this.particleContext);
-    window.addEventListener('resize', this.reset.bind(this, false));
+    window.addEventListener('resize', this.onResize.bind(this));
     this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
   },
 
   beforeDestroy() {
-    window.removeEventListener('resize', this.reset.bind(this, false));
+    window.removeEventListener('resize', this.onResize.bind(this));
   },
 
   methods: {
@@ -247,6 +248,18 @@ export default {
         this.reset(true);
       } else {
         this.paused = !this.paused;
+      }
+    },
+
+    /**
+     * On resize callback
+     *
+     * @param {object} event The resize event
+     */
+    onResize(event) {
+      if (this.oldWidth !== event.target.innerWidth) {
+        setTimeout(this.reset.bind(this, false), 250);
+        this.oldWidth = event.target.innerWidth;
       }
     },
 
