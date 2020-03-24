@@ -127,6 +127,7 @@ export default {
       this.initCanvasSizes();
       this.time = 0;
       this.stats = {
+        healthy: this.config.totalPart,
         recovered: 0,
         quarantined: 0,
         infected: 0,
