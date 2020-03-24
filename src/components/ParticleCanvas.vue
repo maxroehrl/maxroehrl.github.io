@@ -23,7 +23,7 @@
               <label :key="key + '_label'">{{ key }}:</label>
               <span :key="key" :style="{color: colors[key]}">{{ stats[key] }}</span>
             </template>
-            <label>Time/Ticks:</label>
+            <label>time:</label>
             <span>{{ time }}</span>
           </div>
           <div class="plot">
@@ -180,6 +180,7 @@ export default {
         // Update stats and draw plot
         this.stats.healthy = this.stats.total - this.stats.infected - this.stats.recovered;
         if (this.time <= this.plot.width && this.time % this.plot.updateAfterTicks === 0) {
+          // In the plot we do not count quarantined as part of infected particles
           const stats = Object.assign({}, this.stats);
           stats.infected -= stats.quarantined;
           this.plotStats(
