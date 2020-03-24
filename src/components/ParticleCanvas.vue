@@ -34,8 +34,10 @@
           </div>
           <div class="plot">
             <h3>Change over time</h3>
-            <div class="plot-wrapper" :style="{height: plot.height + 'px'}">
-              <canvas ref="plot" />
+            <div ref="plot-scroller" class="plot-scroller">
+              <div class="plot-wrapper" :style="{height: plot.height + 'px', width: plot.width + 'px'}">
+                <canvas ref="plot" />
+              </div>
             </div>
           </div>
         </div>
@@ -67,6 +69,7 @@ export default {
         context: undefined,
         height: undefined,
         width: undefined,
+        initialWidth: undefined,
         updateAfterTicks: 1,
       },
       config: {
@@ -109,6 +112,7 @@ export default {
     this.drawParticles(this.particles, this.particleContext);
     window.addEventListener('resize', this.onResize.bind(this));
     this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
+    this.plot.initialWidth = this.$refs['plot'].parentElement.clientWidth;
   },
 
   beforeDestroy() {
@@ -168,10 +172,9 @@ export default {
 
       const plotCanvas = this.$refs['plot'];
       this.plot.context = plotCanvas.getContext('2d');
-      // Subtract the height of the header
-      this.plot.height = this.$refs['inputs-wrapper'].clientHeight - 38;
-      this.plot.width = plotCanvas.parentElement.clientWidth;
-      plotCanvas.width = this.plot.width;
+      // Subtract the height of the header and the scrollbar
+      this.plot.height = this.$refs['inputs-wrapper'].clientHeight - 38 - 13;
+      plotCanvas.width = 4000;
       plotCanvas.height = this.plot.height;
     },
 
@@ -186,13 +189,19 @@ export default {
 
         // Update stats and draw plot
         this.stats.healthy = this.stats.total - this.stats.infected - this.stats.recovered;
-        if (this.time <= this.plot.width && this.time % this.plot.updateAfterTicks === 0) {
+        if (this.time % this.plot.updateAfterTicks === 0) {
+          const time = this.time / this.plot.updateAfterTicks;
+          // Increase the with of the plot wrapper to show more if the big canvas
+          if (this.plot.width < time) {
+            this.plot.width += 1;
+            this.$refs['plot-scroller'].scrollLeft += 1;
+          }
           // In the plot we do not count quarantined as part of infected particles
           const stats = Object.assign({}, this.stats);
           stats.infected -= stats.quarantined;
           this.plotStats(
               stats,
-              this.time / this.plot.updateAfterTicks,
+              time,
               this.plot.context,
               this.plot.height,
               this.colors,
@@ -271,6 +280,7 @@ export default {
     reset(restart) {
       clearTimeout(this.timeoutHandle);
       this.clear(this.plot.context, this.plot.width, this.plot.height);
+      this.plot.width = this.plot.initialWidth;
       this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
       this.init();
       this.drawParticles(this.particles, this.particleContext);
@@ -552,7 +562,7 @@ export default {
   }
 
   .inputs-wrapper {
-    width: 265px;
+    width: 248px;
     min-width: 175px;
   }
 
@@ -573,15 +583,22 @@ export default {
   }
 
   .plot {
-    width: 100%;
-    min-width: 600px;
+    width: 600px;
 
-    .plot-wrapper {
+    .plot-scroller {
       width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
 
-      canvas {
-        width: 100%;
-        height: 100%;
+      .plot-wrapper {
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+        canvas {
+          width: 4000px;
+          height: 100%;
+        }
       }
     }
   }
