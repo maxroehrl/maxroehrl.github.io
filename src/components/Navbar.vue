@@ -35,6 +35,7 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: $accent;
+    overflow-x: auto;
 
     > a {
       font-size: 1.8em;
