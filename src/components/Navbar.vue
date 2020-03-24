@@ -4,7 +4,9 @@
     <a v-for="link in links"
        :key="link.url"
        v-scroll-to="link.url"
-       class="underline">{{ link.text }}</a>
+       class="underline">
+      {{ link.text }}
+    </a>
   </div>
 </template>
 
@@ -39,6 +41,7 @@ export default {
       color: white;
       margin: 0 .7em;
       cursor: pointer;
+      white-space: nowrap;
     }
   }
 

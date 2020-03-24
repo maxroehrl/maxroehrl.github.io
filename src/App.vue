@@ -4,8 +4,8 @@
       <navbar :links="navbarLinks" />
     </header>
     <main>
-      <particle-canvas />
       <project-list />
+      <particle-canvas />
       <contact />
     </main>
     <footer>
@@ -37,6 +37,9 @@ export default {
         {
           url: '#projects',
           text: 'Projects',
+        }, {
+          url: '#particles',
+          text: 'Particle System',
         }, {
           url: '#contact',
           text: 'Contact',

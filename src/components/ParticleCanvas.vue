@@ -1,5 +1,5 @@
 <template>
-  <section id="contact">
+  <section id="particles">
     <h1>Particle System</h1>
     <ul>
       <li>
@@ -7,7 +7,9 @@
           <div ref="inputs-wrapper" class="inputs-wrapper">
             <h3>Configuration</h3>
             <template v-for="(_, key) in config">
-              <label :key="key + '_label'" :for="key">{{ key }}:</label>
+              <label :key="key + '_label'" :for="key">
+                {{ key }}:
+              </label>
               <input :id="key"
                      :key="key"
                      v-model.number="config[key]"
@@ -20,8 +22,12 @@
           <div class="counts-wrapper">
             <h3>Counts</h3>
             <template v-for="(_, key) in stats">
-              <label :key="key + '_label'">{{ key }}:</label>
-              <span :key="key" :style="{color: colors[key]}">{{ stats[key] }}</span>
+              <label :key="key + '_label'">
+                {{ key }}:
+              </label>
+              <span :key="key" :style="{color: colors[key]}">
+                {{ stats[key] }}
+              </span>
             </template>
             <label>time:</label>
             <span>{{ time }}</span>
