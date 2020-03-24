@@ -51,6 +51,22 @@ export default {
   @import "colors";
   @import "dots";
 
+  *::-webkit-scrollbar {
+    background: $light-card-bg2;
+    width: 13px;
+    height: 13px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: $light-card-bg;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: $light-card-bg2;
+    border-radius: 6px;
+    border: 1px solid $light-card-border;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -173,6 +189,19 @@ export default {
   }
 
   @media (prefers-color-scheme: dark) {
+    *::-webkit-scrollbar {
+      background: $dark-card-bg2;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: $dark-card-bg;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: $dark-card-bg2;
+      border-color: $dark-card-border;
+    }
+
     body {
       background: $dark-bg;
       color: $dark-font;
