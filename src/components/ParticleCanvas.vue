@@ -67,8 +67,8 @@ export default {
       particleContext: undefined,
       plot: {
         context: undefined,
-        height: undefined,
-        width: undefined,
+        height: 218,
+        width: 1,
         initialWidth: undefined,
         updateAfterTicks: 1,
       },
@@ -112,7 +112,6 @@ export default {
     this.drawParticles(this.particles, this.particleContext);
     window.addEventListener('resize', this.onResize.bind(this));
     this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
-    this.plot.initialWidth = this.$refs['plot'].parentElement.clientWidth;
   },
 
   beforeDestroy() {
@@ -192,11 +191,9 @@ export default {
         this.stats.healthy = this.stats.total - this.stats.infected - this.stats.recovered;
         if (this.time % this.plot.updateAfterTicks === 0) {
           const time = this.time / this.plot.updateAfterTicks;
-          // Increase the with of the plot wrapper to show more if the big canvas
-          if (this.plot.width < time) {
-            this.plot.width += 1;
-            this.$refs['plot-scroller'].scrollLeft += 1;
-          }
+          // Increase the with of the plot wrapper to show more of the big canvas
+          this.plot.width += 1;
+          this.$refs['plot-scroller'].scrollLeft += 1;
           // In the plot we do not count quarantined as part of infected particles
           const stats = Object.assign({}, this.stats);
           stats.infected -= stats.quarantined;
@@ -281,7 +278,7 @@ export default {
     reset(restart) {
       clearTimeout(this.timeoutHandle);
       this.clear(this.plot.context, this.plot.width, this.plot.height);
-      this.plot.width = this.plot.initialWidth;
+      this.plot.width = 1;
       this.clear(this.particleContext, this.boundaries.maxX, this.boundaries.maxY);
       this.init();
       this.drawParticles(this.particles, this.particleContext);
@@ -543,6 +540,7 @@ export default {
   h3 {
     margin: 8px 0;
     min-width: 135px;
+    white-space: nowrap;
   }
 
   .bottom-group-hor {
@@ -563,13 +561,13 @@ export default {
   }
 
   .inputs-wrapper {
-    width: 248px;
+    width: 175px;
     min-width: 175px;
   }
 
   .counts-wrapper {
-    width: 180px;
-    min-width: 125px;
+    width: 140px;
+    min-width: 140px;
 
     label {
       min-width: 80px;
@@ -584,7 +582,8 @@ export default {
   }
 
   .plot {
-    width: 600px;
+    width: 100%;
+    min-width: 165px;
 
     .plot-scroller {
       width: 100%;
