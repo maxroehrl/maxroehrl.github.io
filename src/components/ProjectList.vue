@@ -32,6 +32,8 @@ import LanteHistory from '../assets/lante_history_screenshot.png';
 import D3 from '../assets/d3.png';
 import Simplification from '../assets/simplification.jpg';
 import Prismatik from '../assets/prismatik.png';
+import Vueddit1 from '../assets/vueddit1.png';
+import Vueddit2 from '../assets/vueddit2.png';
 
 export default {
   name: 'ProjectList',
@@ -41,6 +43,33 @@ export default {
   data() {
     return {
       projects: [{
+        id: 1,
+        title: 'Vueddit',
+        full: true,
+        description: `<p>A Reddit client for Android built with NativeScript-Vue</p>
+                        <ul>
+                          <li>Shows your subscribed subreddits</li>
+                          <li>In app GIF Playback</li>
+                          <li>Open URLs in <a href="https://github.com/saschpe/android-customtabs">Chrome custom tabs</a> inside the app</li>
+                          <li>Parse markdown with <a href="https://github.com/noties/Markwon">Markwon</a></li>
+                        </ul>`,
+        screenshots: [{
+          class: ['vueddit-screenshot'],
+          url: Vueddit1,
+        }, {
+          class: ['vueddit-screenshot'],
+          url: Vueddit2,
+        }],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/Vueddit',
+        }, {
+          text: 'Play Store',
+          url: 'https://play.google.com/store/apps/details?id=de.max.roehrl.vueddit.play',
+        },
+        ],
+      }, {
         id: 28,
         title: 'CyanogenMod Themes',
         full: true,

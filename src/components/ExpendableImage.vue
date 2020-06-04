@@ -149,8 +149,13 @@ export default {
     height: 280px;
   }
 
+  .vueddit-screenshot {
+    margin: 0 .5em .5em .5em;
+    width: 400px;
+  }
+
   @media only screen and (max-width: 600px) {
-    .screenshot, .big-screenshot, .theme-screenshot, .lante-screenshot {
+    .screenshot, .big-screenshot, .theme-screenshot, .lante-screenshot, .vueddit-screenshot {
       width: 80vw;
       height: auto;
     }
