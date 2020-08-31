@@ -102,7 +102,7 @@ export default {
           url: 'https://github.com/maxroehrl/CM12Theme/tree/aurora',
         }, {
           text: 'Play Store',
-          url: 'https://play.google.com/store/apps/developer?id=Max+R%C3%B6hrl',
+          url: 'https://play.google.com/store/apps/dev?id=6192927592640738536',
         },
         ],
       }, {
