@@ -32,6 +32,7 @@ import LanteHistory from '../assets/lante_history_screenshot.png';
 import D3 from '../assets/d3.png';
 import Simplification from '../assets/simplification.jpg';
 import Prismatik from '../assets/prismatik.png';
+import Photobox from '../assets/photobox.jpg';
 import Vueddit1 from '../assets/vueddit1.png';
 import Vueddit2 from '../assets/vueddit2.png';
 
@@ -409,7 +410,7 @@ export default {
         id: 15,
         title: 'Raspberry Pi Photobox',
         full: false,
-        description: `<p>A photobox for the Raspberry Pi which also has the Pi Camera, a (touch) display and three GPIO buttons.</p>
+        description: `<p>A photobox for the Raspberry Pi which also has the Pi (HQ) Camera, a (touch) display and three GPIO buttons.</p>
                       <ul>
                         <li>Uses <a target="_blank" href="https://picamera.readthedocs.io/en/latest/api_camera.html">picamera</a> library for its user interface</li>
                         <li>Can capture single image, 3 second burst shot as GIF and 4 images combined on a card</li>
@@ -419,8 +420,10 @@ export default {
                         <li>Script can be configured via config file</li>
                         <li>Pictures get saved to USB stick</li>
                       </ul>
-                      <code>sudo -E python3 Photobooth/photobooth.py</code>`,
-        screenshots: [],
+                      <code>sudo -E python3 photobooth.py</code>`,
+        screenshots: [{
+          url: Photobox,
+        }],
         links: [{
           text: 'Github',
           img: Github,
