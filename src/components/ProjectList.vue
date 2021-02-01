@@ -404,7 +404,7 @@ export default {
         }, {
           text: 'Download',
           img: Download,
-          url: 'https://psieg.de/jenkins/job/Prismatik_Windows/471/',
+          url: 'https://www.mediafire.com/file/pg3onf3mot4999v/Prismatik_%2528unofficial%2529_64bit_Setup_5.11.2.27.exe.zip/file',
         }],
       }, {
         id: 15,
@@ -428,6 +428,9 @@ export default {
           text: 'Github',
           img: Github,
           url: 'https://github.com/maxroehrl/Photobooth',
+        }, {
+          text: 'Website',
+          url: 'https://k-und-r-fotobox.de',
         }],
       }].sort((a, b) => a.id > b.id ? 1 : -1),
     };
