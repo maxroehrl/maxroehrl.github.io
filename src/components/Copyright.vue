@@ -1,6 +1,6 @@
 <template>
   <div class="copyright">
-    <p>&copy; 2017 Max R&ouml;hrl</p>
+    <p>Copyright &copy;{{ new Date().getFullYear() }} Max R&ouml;hrl</p>
   </div>
 </template>
 
