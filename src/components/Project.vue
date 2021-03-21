@@ -31,16 +31,23 @@
     </div>
     <div v-if="project.links.length"
          class="bottom-links">
-      <a v-for="link in project.links"
-         :key="link.url"
-         :href="link.url"
-         class="bottom-link"
-         target="_blank">
-        <component :is="link.img"
-                   v-if="link.img"
-                   class="smaller-icon" />
-        <p>{{ link.text }}</p>
-      </a>
+      <div v-for="link in project.links"
+           :key="link.url">
+        <a v-if="!link.url.startsWith('/')"
+           :href="link.url"
+           class="bottom-link"
+           target="_blank">
+          <component :is="link.img"
+                     v-if="link.img"
+                     class="smaller-icon" />
+          <p>{{ link.text }}</p>
+        </a>
+        <router-link v-else
+                     :to="link.url"
+                     class="bottom-link">
+          {{ link.text }}
+        </router-link>
+      </div>
     </div>
   </li>
 </template>

@@ -4,9 +4,7 @@
       <navbar :links="navbarLinks" />
     </header>
     <main>
-      <project-list />
-      <particle-canvas />
-      <contact />
+      <router-view />
     </main>
     <footer>
       <navbar :links="navbarLinks" />
@@ -16,32 +14,23 @@
 </template>
 
 <script>
-import ProjectList from './components/ProjectList';
 import Navbar from './components/Navbar';
-import Contact from './components/Contact';
 import Copyright from './components/Copyright';
-import ParticleCanvas from './components/ParticleCanvas';
 
 export default {
   name: 'App',
   components: {
-    ProjectList,
     Navbar,
-    Contact,
     Copyright,
-    ParticleCanvas,
   },
   data() {
     return {
       navbarLinks: [
         {
-          url: '#projects',
+          url: '/projects',
           text: 'Projects',
         }, {
-          url: '#particles',
-          text: 'Particle System',
-        }, {
-          url: '#contact',
+          url: '/contact',
           text: 'Contact',
         },
       ],
@@ -143,6 +132,10 @@ export default {
   header {
     border-bottom: 1px solid $accentDark;
     box-shadow: 0 5px 5px $light-shadow2;
+  }
+
+  main {
+    min-height: 75vh;
   }
 
   footer {

@@ -1,12 +1,21 @@
 <template>
   <div class="navbar">
-    <logo :size="400" url="." />
-    <a v-for="link in links"
-       :key="link.url"
-       v-scroll-to="link.url"
-       class="underline">
-      {{ link.text }}
-    </a>
+    <div>
+      <logo :size="400" url="." />
+    </div>
+    <div v-for="link in links"
+         :key="link.url">
+      <a v-if="link.url.startsWith('#')"
+         v-scroll-to="link.url"
+         class="underline">
+        {{ link.text }}
+      </a>
+      <router-link v-else
+                   :to="link.url"
+                   class="underline">
+        {{ link.text }}
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -37,7 +46,7 @@ export default {
     background-color: $accent;
     overflow-x: auto;
 
-    > a {
+    > div > a {
       font-size: 1.8em;
       color: white;
       margin: 0 .7em;
@@ -69,7 +78,7 @@ export default {
   }
 
   @media only screen and (max-width: 600px) {
-    .navbar > a {
+    .navbar > div > a {
       font-size: 1.3em;
       margin: 0 .5em;
     }
