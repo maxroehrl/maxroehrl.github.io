@@ -89,6 +89,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
+    open: true,
   },
   performance: {
     hints: false,
