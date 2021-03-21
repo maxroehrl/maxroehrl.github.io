@@ -46,6 +46,7 @@ export default {
       projects: [{
         id: 1,
         title: 'Vueddit',
+        year: '2020 May',
         full: true,
         description: `<p>A Reddit client for Android built with NativeScript-Vue</p>
                         <ul>
@@ -73,6 +74,7 @@ export default {
       }, {
         id: 28,
         title: 'CyanogenMod Themes',
+        year: '2015 September',
         full: true,
         description: `<p>Themes for CyanogenMod 12.x and 13 available on Google Play</p>
                         <ul>
@@ -109,6 +111,7 @@ export default {
       }, {
         id: 30,
         title: 'Lante',
+        year: '2017 November',
         full: true,
         description: `<p>A Local Area Network Text Editor for Windows, Linux and OSX where people can work together.</p>
                         <p>One user hosts a document protected with a password and others can connect if they know the password.</p>
@@ -148,6 +151,7 @@ export default {
       }, {
         id: 40,
         title: 'Transformer Toolkit',
+        year: '2014 April',
         full: false,
         description: `<p>A toolkit written for the Asus Transformer Pad TF300T, TF700T, ME301T and the Google Nexus 5 (CAF)</p>
                         <ul>
@@ -172,6 +176,7 @@ export default {
       }, {
         id: 32,
         title: 'Soundboard',
+        year: '2015 December',
         full: false,
         description: `<p>Android app playing sound files from storage</p>
                         <ul>
@@ -196,6 +201,7 @@ export default {
       }, {
         id: 25,
         title: 'Vibrance Utility',
+        year: '2017 May',
         full: false,
         description: `<p>A Win32 application to change the digital vibrance of AMD and Nvidia graphic cards.</p>
                           <ul>
@@ -218,6 +224,7 @@ export default {
       }, {
         id: 50,
         title: 'Dolphin Updater',
+        year: '2016 October',
         full: false,
         description: `<p>A script which updates your Dolphin Emulator installation</p>
                         <ul>
@@ -247,6 +254,7 @@ export default {
       }, {
         id: 60,
         title: 'Abalone',
+        year: '2017 March',
         full: false,
         description: `<p>A Java abalone board game where the player can play against the AI.</p>
                         <ul>
@@ -269,6 +277,7 @@ export default {
       }, {
         id: 130,
         title: 'TCP Chat',
+        year: '2017 August',
         full: false,
         description: `<p>A chat program to communicate with other instances of the program.</p>
                         <ul>
@@ -293,6 +302,7 @@ export default {
       }, {
         id: 80,
         title: 'DirDiff',
+        year: '2017 August',
         full: false,
         description: `<p>Save checksums of all files in the source directory to the SFV file.</p>
                         <p>Compare an SFV file with the source directory to see the changed files.</p>
@@ -307,6 +317,7 @@ export default {
       }, {
         id: 90,
         title: 'DiffCopy',
+        year: '2017 April',
         full: false,
         description: `<p>A python script for syncing source and backup directory (e.g. generate a backup of your music files)</p>
                         <p><code>python DiffCopy.py source backup</code></p>`,
@@ -319,6 +330,7 @@ export default {
       }, {
         id: 21,
         title: 'Surface Mesh Simplification',
+        year: '2018 October',
         full: false,
         description: `<p>Reduces the number of vertices, faces, and edges of a 3D mesh</p>
                         <ul>
@@ -339,6 +351,7 @@ export default {
       }, {
         id: 19,
         title: 'Random data generation',
+        year: '2017 May',
         full: false,
         description: `<p>Generates random points in 2D and 3D</p>
                         <ul>
@@ -360,6 +373,7 @@ export default {
       }, {
         id: 3,
         title: 'This website',
+        year: '2017 April',
         full: false,
         description: `<ul>
                           <li>Hosted on <a target="_blank" href="https://pages.github.com/">Github Pages</a></li>
@@ -380,6 +394,7 @@ export default {
       }, {
         id: 17,
         title: 'Nvidia Framebuffer Capture Support for Prismatik',
+        year: '2019 April',
         full: false,
         description: `<p>Prismatik is the PC software which is part of Lightpack and can control LED strips.</p>
                       <ul>
@@ -409,6 +424,7 @@ export default {
       }, {
         id: 15,
         title: 'Raspberry Pi Photobox',
+        year: '2019 September',
         full: false,
         description: `<p>A photobox for the Raspberry Pi which also has the Pi (HQ) Camera, a (touch) display and three GPIO buttons.</p>
                       <ul>
@@ -435,6 +451,7 @@ export default {
       }, {
         id: 14,
         title: 'Particle Simulation',
+        year: '2020 March',
         full: false,
         description: `<p>This web app simulates particles which can be used to model a pandemic.</p>
                       <ul>

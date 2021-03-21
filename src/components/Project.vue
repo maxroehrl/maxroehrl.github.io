@@ -2,6 +2,7 @@
   <li :class="{'full-width': project.full}">
     <div class="top-content">
       <h2>{{ project.title }}</h2>
+      <em>{{ project.year }}</em>
       <div v-html="project.description" />
     </div>
     <div v-if="project.screenshots.length === 1"
@@ -143,6 +144,10 @@ export default {
       &:hover {
         text-decoration-color: $light-underline-hover;
       }
+    }
+
+    em {
+      color: #8d8d8d;
     }
   }
 
