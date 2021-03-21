@@ -167,7 +167,7 @@ export default {
           url: 'https://github.com/maxroehrl/Transformer-Toolkit',
         }, {
           text: 'XDA Developers Thread',
-          url: 'http://forum.xda-developers.com/showthread.php?t=2094746',
+          url: 'https://forum.xda-developers.com/t/tool-tf300t-tf700t-me301t-n5-transformer-toolkit-v4-1-1.2094746/',
         }],
       }, {
         id: 32,
@@ -431,6 +431,25 @@ export default {
         }, {
           text: 'Website',
           url: 'https://k-und-r-fotobox.de',
+        }],
+      }, {
+        id: 14,
+        title: 'Particle Simulation',
+        full: false,
+        description: `<p>This web app simulates particles which can be used to model a pandemic.</p>
+                      <ul>
+                        <li>Update the velocities of the two colliding particles based on <a target="_blank" href="https://en.wikipedia.org/wiki/Elastic_collision">elastic collision</a> with angle-free representation in 2D</li>
+                        <li>Uses a Vue component which contains a canvas to draw the simulation</li>
+                        <li>Multiple parameters and probabilities can be changed</li>
+                      </ul>`,
+        screenshots: [],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/maxroehrl.github.io/blob/master/src/components/ParticleCanvas.vue',
+        }, {
+          text: 'Demo',
+          url: '/particles',
         }],
       }].sort((a, b) => a.id > b.id ? 1 : -1),
     };
