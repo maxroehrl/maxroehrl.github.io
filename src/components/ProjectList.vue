@@ -35,6 +35,13 @@ import Prismatik from '../assets/prismatik.png';
 import Photobox from '../assets/photobox.jpg';
 import Vueddit1 from '../assets/vueddit1.png';
 import Vueddit2 from '../assets/vueddit2.png';
+import AuroraCm11 from '../assets/aurora_cm11.jpg';
+import RemicsJB from '../assets/remics_jb.png';
+import RemicsJB2 from '../assets/remics_jb2.png';
+import RemicsJB3 from '../assets/remics_jb3.png';
+import RemicsJB4 from '../assets/remics_jb4.png';
+import Vueddit21 from '../assets/vueddit2_1.png';
+import Vueddit22 from '../assets/vueddit2_2.png';
 
 export default {
   name: 'ProjectList',
@@ -45,7 +52,7 @@ export default {
     return {
       projects: [{
         id: 1,
-        title: 'Vueddit',
+        title: 'Vueddit (Reddit App)',
         year: '2020 May',
         full: true,
         description: `<p>A Reddit client for Android built with NativeScript-Vue</p>
@@ -468,7 +475,138 @@ export default {
           text: 'Demo',
           url: '/particles',
         }],
-      }].sort((a, b) => a.id > b.id ? 1 : -1),
+      }, {
+        id: 22,
+        title: 'Aurora CyanogenMod 11 Theme',
+        year: '2014 July',
+        full: false,
+        description: `<p>A theme for CyanogenMod 11 available on Google Play which was the base for the CM12 Themes.</p>`,
+        screenshots: [{
+          url: AuroraCm11,
+        }],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/CM11Theme',
+        }, {
+          text: 'Play Store',
+          url: 'https://play.google.com/store/apps/details?id=com.max.theme.aurora',
+        }],
+      }, {
+        id: 23,
+        title: 'Vueddit 2 (Reddit App)',
+        year: '2020 November',
+        full: true,
+        description: `<p>A native Android app based on the design of Vueddit.</p>
+                      <ul>
+                        <li>Written in <a href="https://developer.android.com/kotlin/">Kotlin</a></li>
+                        <li>Uses <a href="https://developer.android.com/jetpack/androidx/releases/navigation">AndroidX navigation</a> for navigation in subreddit and comments</li>
+                        <li>Uses <a href="https://developer.android.com/training/volley/">Volley</a> for network requests</li>
+                        <li>Uses <a href="https://exoplayer.dev/">Exoplayer</a> for showing GIFs and videos based on the DASH protocol</li>
+                        <li>Uses <a href="https://noties.io/Markwon/">Markwon</a> for displaying markdown</li>
+                        <li>Uses Chrome custom tabs to show web pages</li>
+                        <li>Uses <a href="https://frescolib.org/">Fresco</a> for displaying images</li>
+                        <li>Uses the coroutine based <a href="https://developer.android.com/jetpack/androidx/releases/datastore">AndroidX data store</a> for saving user preferences</li>
+                        <li>Automatic builds trough Github CI</li>
+                      </ul>`,
+        screenshots: [{
+          class: ['vueddit-screenshot'],
+          url: Vueddit21,
+        }, {
+          class: ['vueddit-screenshot'],
+          url: Vueddit22,
+        }],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/Vueddit/tree/native',
+        }],
+      }, {
+        id: 24,
+        title: 'Patent Data Deep Learning Project',
+        year: '2020 January',
+        full: false,
+        description: `<p>Analyses patent data to get the correct CPC group.</p>
+                      <ul>
+                        <li>Uses keras with tensorflow</li>
+                        <li>Also uses Google Bert as a NLP model</li>
+                        <li>Can be run in Google Colab</li>
+                      </ul>`,
+        screenshots: [],
+        links: [{
+          text: 'GH Gist',
+          img: Github,
+          url: 'https://gist.github.com/maxroehrl/096dfc0ebb111f36d5e07d877d60738e',
+        }],
+      }, {
+        id: 26,
+        title: 'Hive Project',
+        year: '2020 November',
+        full: false,
+        description: `<p>Evaluate simple SQL queries on JSON data.</p>
+                      <ul>
+                        <li>Written in Python3</li>
+                        <li>Transforms SQL into optimized relational algebra (rule based optimization)</li>
+                        <li>Converts relational algebra into Map-Reduce jobs in <a href="https://github.com/spotify/luigi">luigi</a></li>
+                        <li>Performs chain folding of Map-Reduce jobs to reduce intermediary writes</li>
+                        <li>Can be run in a Hadoop cluster on Big Data</li>
+                        <li>Automated unit tests trough Github CI</li>
+                      </ul>`,
+        screenshots: [],
+        links: [{
+          text: 'Github',
+          img: Github,
+          url: 'https://github.com/maxroehrl/miniHive',
+        }],
+      }, {
+        id: 27,
+        title: 'RemICS JB custom ROM',
+        year: '2013 January',
+        full: true,
+        description: `<p>A custom ROM for the Samsung Galaxy S+ (GT-i9001).</p>
+                      <ul>
+                        <li>Based on CyanogenMod 10 ROM</li>
+                        <li>Themed based on the Galaxy S4 Touchwiz design</li>
+                        <li>~43.000 combined downloads on Mediafire</li>
+                      </ul>`,
+        screenshots: [{
+          caption: 'Settings',
+          class: ['vueddit-screenshot'],
+          url: RemicsJB,
+        }, {
+          caption: 'Homescreen',
+          class: ['vueddit-screenshot'],
+          url: RemicsJB2,
+        }, {
+          caption: 'Lockscreen',
+          class: ['vueddit-screenshot'],
+          url: RemicsJB3,
+        }, {
+          caption: 'Status Bar',
+          class: ['vueddit-screenshot'],
+          url: RemicsJB4,
+        }],
+        links: [{
+          text: 'XDA Developers Thread',
+          url: 'https://forum.xda-developers.com/t/rom-jb-4-1-2-remics-jb-v4-2-s4-look-and-feel-official.2087631/',
+        }],
+      }, {
+        id: 27,
+        title: 'CPU Monitor',
+        year: '2014 June',
+        full: false,
+        description: `<p>A .NET application which sends the CPU utilization over UART to an Arduino</p>`,
+        screenshots: [],
+        links: [{
+          text: 'Github',
+          url: 'https://github.com/maxroehrl/CPU-Monitor',
+          img: Github,
+        }, {
+          text: 'Arduino Sketch',
+          url: 'https://github.com/maxroehrl/CPU-Monitor-Sketch',
+          img: Github,
+        }],
+      }].sort((a, b) => b.year.localeCompare(a.year, 'en', {sensitivity: 'base'})),
     };
   },
 };
