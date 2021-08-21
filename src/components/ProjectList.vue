@@ -591,7 +591,7 @@ export default {
           url: 'https://forum.xda-developers.com/t/rom-jb-4-1-2-remics-jb-v4-2-s4-look-and-feel-official.2087631/',
         }],
       }, {
-        id: 27,
+        id: 29,
         title: 'CPU Monitor',
         year: '2014 June',
         full: false,
