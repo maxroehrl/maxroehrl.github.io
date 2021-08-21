@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.js',
+  entry: path.resolve(__dirname, './src/main.js'),
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -68,10 +68,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]',
-        },
+        type: 'asset',
       },
       {
         test: /\.svg$/,
@@ -86,9 +83,14 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json'],
   },
   devServer: {
+    static: {
+      directory: path.resolve(__dirname, '.'),
+    },
+    client: {
+      progress: true,
+      overlay: true,
+    },
     historyApiFallback: true,
-    noInfo: true,
-    overlay: true,
     open: true,
   },
   performance: {
