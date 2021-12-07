@@ -91,7 +91,6 @@ module.exports = {
       overlay: true,
     },
     historyApiFallback: true,
-    open: true,
   },
   performance: {
     hints: false,
