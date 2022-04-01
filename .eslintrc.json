@@ -6,23 +6,28 @@
     },
     "extends": [
       "google",
-      "plugin:vue/recommended"
+      "plugin:vue/vue3-recommended"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "parser": "vue-eslint-parser",
     "parserOptions": {
-        "parser": "babel-eslint",
-        "ecmaVersion": 2018,
+        "parser": "@babel/eslint-parser",
+        "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
         "vue",
-        "babel"
+        "@babel"
     ],
     "rules": {
-      "no-invalid-this": 0,
+      "@babel/new-cap": "error",
+      "@babel/no-invalid-this": "error",
+      "@babel/no-unused-expressions": "error",
+      "@babel/object-curly-spacing": "error",
+      "@babel/semi": "error",
       "vue/html-closing-bracket-newline": ["error", {
         "singleline": "never",
         "multiline": "never"
@@ -33,6 +38,8 @@
       }],
       "vue/no-v-html": 0,
       "max-len": 0,
-      "linebreak-style": 0
+      "linebreak-style": 0,
+      "vue/multi-word-component-names": 0,
+      "vue/first-attribute-linebreak": 0
     }
 }

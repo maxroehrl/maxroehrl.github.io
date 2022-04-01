@@ -61,8 +61,8 @@ import Download from '../assets/download.svg';
 export default {
   name: 'Project',
   components: {
-    Github,
-    Download,
+    Github: Object.freeze(Github),
+    Download: Object.freeze(Download),
     ExpendableImage,
   },
   props: {

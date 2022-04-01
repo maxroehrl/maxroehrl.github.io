@@ -214,7 +214,7 @@ export default {
                           <ul>
                             <li>Written in C++</li>
                             <li>Uses <a target="_blank" href="https://github.com/GPUOpen-LibrariesAndSDKs/display-library">AMD Display Library</a></li>
-                            <li>Uses <a target="_blank" href="http://docs.nvidia.com/gameworks/content/gameworkslibrary/coresdk/nvapi/index.html">Nvidia NvAPI</a></li>
+                            <li>Uses <a target="_blank" href="https://docs.nvidia.com/gameworks/content/gameworkslibrary/coresdk/nvapi/index.html">Nvidia NvAPI</a></li>
                           </ul>`,
         screenshots: [{
           url: VibranceUtility,
@@ -507,7 +507,7 @@ export default {
                         <li>Uses Chrome custom tabs to show web pages</li>
                         <li>Uses <a href="https://frescolib.org/">Fresco</a> for displaying images</li>
                         <li>Uses the coroutine based <a href="https://developer.android.com/jetpack/androidx/releases/datastore">AndroidX data store</a> for saving user preferences</li>
-                        <li>Automatic builds trough Github CI</li>
+                        <li>Automatic builds trough GitHub CI</li>
                       </ul>`,
         screenshots: [{
           class: ['vueddit-screenshot'],
@@ -550,7 +550,7 @@ export default {
                         <li>Converts relational algebra into Map-Reduce jobs in <a href="https://github.com/spotify/luigi">luigi</a></li>
                         <li>Performs chain folding of Map-Reduce jobs to reduce intermediary writes</li>
                         <li>Can be run in a Hadoop cluster on Big Data</li>
-                        <li>Automated unit tests trough Github CI</li>
+                        <li>Automated unit tests trough GitHub CI</li>
                       </ul>`,
         screenshots: [],
         links: [{

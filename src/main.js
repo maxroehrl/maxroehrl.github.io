@@ -1,15 +1,12 @@
-import Vue from 'vue';
+import {createApp} from 'vue';
 import App from './App.vue';
-import vueScrollto from 'vue-scrollto';
-import VueRouter from 'vue-router';
+import VueScrollTo from 'vue-scrollto';
+import {createRouter, createWebHistory} from 'vue-router';
 import ProjectList from './components/ProjectList';
 import ParticleCanvas from './components/ParticleCanvas';
 import Contact from './components/Contact';
 
-Vue.use(vueScrollto);
-Vue.use(VueRouter);
-
-const router = new VueRouter({
+const router = createRouter({
   routes: [{
     path: '/',
     redirect: 'projects',
@@ -23,9 +20,10 @@ const router = new VueRouter({
     path: '/contact',
     component: Contact,
   }],
+  history: createWebHistory(),
 });
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount('#app');
+const app = createApp(App);
+app.use(router);
+app.directive('scroll-to', VueScrollTo);
+app.mount('#app');

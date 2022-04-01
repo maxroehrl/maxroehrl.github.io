@@ -6,7 +6,7 @@
     <div v-for="link in links"
          :key="link.url">
       <a v-if="link.url.startsWith('#')"
-         v-scroll-to="link.url"
+         :v-scroll-to="link.url"
          class="underline">
         {{ link.text }}
       </a>

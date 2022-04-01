@@ -1,6 +1,6 @@
 # maxroehrl.github.io
 
-> An overview of the projects of this github profile.
+> An overview of the projects of this GitHub profile.
 
 ## Build Setup
 

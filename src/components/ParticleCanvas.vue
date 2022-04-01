@@ -6,14 +6,14 @@
         <div class="bottom-group-hor">
           <div ref="inputs-wrapper" class="inputs-wrapper">
             <h3>Configuration</h3>
-            <template v-for="(_, key) in config">
-              <label :key="key + '_label'" :for="key">
+            <template v-for="(_, key) in config" :key="key">
+              <label :for="key">
                 {{ key }}:
               </label>
-              <input :id="key"
-                     :key="key"
-                     v-model.number="config[key]"
-                     type="number">
+              <input
+                :id="key"
+                v-model.number="config[key]"
+                type="number">
             </template>
             <button @click="reset(true)">
               Restart
@@ -21,11 +21,11 @@
           </div>
           <div class="counts-wrapper">
             <h3>Counts</h3>
-            <template v-for="(_, key) in stats">
-              <label :key="key + '_label'">
+            <template v-for="(_, key) in stats" :key="key">
+              <label>
                 {{ key }}:
               </label>
-              <span :key="key" :style="{color: colors[key]}">
+              <span :style="{color: colors[key]}">
                 {{ stats[key] }}
               </span>
             </template>
@@ -114,7 +114,7 @@ export default {
     this.timeoutHandle = setTimeout(this.tick.bind(this), this.config.tickRate);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.onResize.bind(this));
   },
 

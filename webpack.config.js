@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {VueLoaderPlugin} = require('vue-loader');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -15,7 +17,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'vue-style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {hmr: process.env.NODE_ENV !== 'production'},
+          },
           'css-loader',
         ],
       },
@@ -63,7 +68,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
@@ -72,13 +77,16 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        use: [
+          'vue-loader',
+          'vue-svg-loader',
+        ],
       },
     ],
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue': '@vue/runtime-dom',
     },
     extensions: ['*', '.js', '.vue', '.json'],
   },
@@ -98,6 +106,11 @@ module.exports = {
   devtool: 'eval-source-map',
   plugins: [
     new VueLoaderPlugin(),
+    new ESLintPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+    }),
   ],
 };
 
