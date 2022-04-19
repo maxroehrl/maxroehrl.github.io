@@ -505,6 +505,11 @@ export default {
                         <li>Uses <a href="https://exoplayer.dev/">Exoplayer</a> for showing GIFs and videos based on the DASH protocol</li>
                         <li>Uses <a href="https://noties.io/Markwon/">Markwon</a> for displaying markdown</li>
                         <li>Uses Chrome custom tabs to show web pages</li>
+                        <li>View Model ViewModel Architecture with livecycle awareness</li>
+                        <li>Restores state of view models when app was killed</li>
+                        <li>Dynamic web preview of Twitter and YouTube links</li>
+                        <li>Dynamic highlight color from the system under Android 12</li>
+                        <li>Material You design</li>
                         <li>Uses <a href="https://frescolib.org/">Fresco</a> for displaying images</li>
                         <li>Uses the coroutine based <a href="https://developer.android.com/jetpack/androidx/releases/datastore">AndroidX data store</a> for saving user preferences</li>
                         <li>Automatic builds trough GitHub CI</li>
