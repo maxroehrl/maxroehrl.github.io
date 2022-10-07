@@ -42,6 +42,10 @@ import RemicsJB3 from '../assets/remics_jb3.png';
 import RemicsJB4 from '../assets/remics_jb4.png';
 import Vueddit21 from '../assets/vueddit2_1.png';
 import Vueddit22 from '../assets/vueddit2_2.png';
+import Home from '../assets/home.png';
+import Calender from '../assets/calender.png';
+import MoodGeneral from '../assets/moodGeneral.png';
+import MedsAdd from '../assets/medsAdd.png';
 
 export default {
   name: 'ProjectList',
@@ -510,7 +514,7 @@ export default {
                         <li>Dynamic web preview of Twitter and YouTube links</li>
                         <li>Dynamic highlight color from the system under Android 12</li>
                         <li>Material You design</li>
-                        <li>Uses <a href="https://frescolib.org/">Fresco</a> for displaying images</li>
+                        <li>Uses <a href="https://coil-kt.github.io/coil/">Coil</a> for displaying images</li>
                         <li>Uses the coroutine based <a href="https://developer.android.com/jetpack/androidx/releases/datastore">AndroidX data store</a> for saving user preferences</li>
                         <li>Automatic builds trough GitHub CI</li>
                       </ul>`,
@@ -609,6 +613,52 @@ export default {
         }, {
           text: 'Arduino Sketch',
           url: 'https://github.com/maxroehrl/CPU-Monitor-Sketch',
+          img: Github,
+        }],
+      }, {
+        id: 33,
+        title: 'Matesy (Mood & Medicament Tracker)',
+        year: '2022 January',
+        full: true,
+        description: `<p>Matesy aims at supporting persons who suffer from bipolar disorder,
+                        as well as connecting them to companions that help them battle their illness.
+                        With features like mood and activity diaries, medication intake and many more,
+                        they can track their symptoms and are reminded of necessary daily actions.</p>
+                      <ul>
+                        <li><a href="https://flutter.dev/">Flutter</a> App, NodeJS <a href="https://expressjs.com/">Express</a> Server, <a href="https://www.postgresql.org/">PostgreSQL</a> Database</li>
+                        <li>User authentication system based on email and password</li>
+                        <li>User data synchronisation in real time</li>
+                        <li>Adding companions via QR code scanning</li>
+                        <li>Research data sharing to second database after user consent</li>
+                        <li>Sync via <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a></li>
+                        <li><a href="https://sequelize.org/">Sequelize</a> ORM on serverside for handling SQL queries</li>
+                        <li><a href="https://drift.simonbinder.eu/">Drift</a> for a client-side SQLite database with auto updating streams</li>
+                        <li></li>
+                      </ul>`,
+        screenshots: [{
+          caption: 'Home',
+          class: ['vueddit-screenshot'],
+          url: Home,
+        }, {
+          caption: 'Calender',
+          class: ['vueddit-screenshot'],
+          url: Calender,
+        }, {
+          caption: 'Meds',
+          class: ['vueddit-screenshot'],
+          url: MedsAdd,
+        }, {
+          caption: 'Moods',
+          class: ['vueddit-screenshot'],
+          url: MoodGeneral,
+        }],
+        links: [{
+          text: 'App',
+          url: 'https://github.com/maxroehrl/App_Matesy',
+          img: Github,
+        }, {
+          text: 'Server',
+          url: 'https://github.com/maxroehrl/MatesyAuthServer',
           img: Github,
         }],
       }].sort((a, b) => b.year.localeCompare(a.year, 'en', {sensitivity: 'base'})),
