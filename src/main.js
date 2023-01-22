@@ -1,10 +1,13 @@
 import {createApp} from 'vue';
 import App from './App.vue';
-import VueScrollTo from 'vue-scrollto';
+// import VueScrollTo from 'vue-scrollto';
 import {createRouter, createWebHistory} from 'vue-router';
-import ProjectList from './components/ProjectList';
-import ParticleCanvas from './components/ParticleCanvas';
-import Contact from './components/Contact';
+import ProjectList from './components/ProjectList.vue';
+import ParticleCanvas from './components/ParticleCanvas.vue';
+import Contact from './components/Contact.vue';
+import "@fancyapps/ui/dist/fancybox.css";
+// eslint-disable-next-line no-unused-vars
+import {Fancybox} from '@fancyapps/ui';
 
 const router = createRouter({
   routes: [{
@@ -25,5 +28,5 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
-app.directive('scroll-to', VueScrollTo);
+// app.directive('scroll-to', VueScrollTo);
 app.mount('#app');

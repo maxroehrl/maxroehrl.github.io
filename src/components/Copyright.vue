@@ -4,23 +4,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Copyright',
-};
-</script>
+<script setup></script>
 
 <style scoped lang="scss">
-  @import "../colors";
+@import '../colors';
 
-  .copyright {
-    padding: 1em;
-    background-color: $grey;
-    border-top: 1px solid black;
+.copyright {
+  padding: 1em;
+  background-color: $grey;
+  border-top: 1px solid black;
 
-    > p {
-      text-align: center;
-      color: #757575;
-    }
+  > p {
+    text-align: center;
+    color: #757575;
   }
+}
 </style>
