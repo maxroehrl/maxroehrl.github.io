@@ -1,5 +1,5 @@
 <template>
-  <a :href="url">
+  <router-link :to="url">
     <svg :viewBox="`0 0 ${2 * size} ${2 * size}`">
       <circle class="circle" :cx="size" :cy="size" :r="0.9 * size" />
       <g class="logo-group">
@@ -7,7 +7,7 @@
         <path class="logo" :d="glyphPath" />
       </g>
     </svg>
-  </a>
+  </router-link>
 </template>
 
 <script setup>

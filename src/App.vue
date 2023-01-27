@@ -7,32 +7,43 @@
       <router-view />
     </main>
     <footer>
-      <navbar :links="navbarLinks" />
+      <navbar :links="footerLinks" />
       <copyright />
     </footer>
   </div>
 </template>
 
 <script setup>
-import Navbar from "./components/Navbar.vue";
-import Copyright from "./components/Copyright.vue";
-import { ref } from "vue";
+import Navbar from './components/Navbar.vue';
+import Copyright from './components/Copyright.vue';
+import { ref } from 'vue';
 
 const navbarLinks = ref([
   {
-    url: "/projects",
-    text: "Projects",
+    url: '/projects',
+    text: 'Projects',
   },
   {
-    url: "/contact",
-    text: "Contact",
+    url: '/experience',
+    text: 'Experience',
+  },
+  {
+    url: '/contact',
+    text: 'Contact',
   },
 ]);
+
+const footerLinks = [
+  {
+    url: '/imprint',
+    text: 'Imprint',
+  },
+].concat(navbarLinks.value);
 </script>
 
 <style lang="scss">
-@import "colors";
-@import "dots";
+@import 'colors';
+@import 'dots';
 
 *::-webkit-scrollbar {
   background: $light-card-bg2;
@@ -60,7 +71,7 @@ body {
   flex-direction: column;
   color: $light-font;
   background-color: $light-bg;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

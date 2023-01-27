@@ -1,16 +1,10 @@
 <template>
   <div class="navbar">
     <div>
-      <logo :size="400" url="." />
+      <logo :size="400" url="/" />
     </div>
     <div v-for="link in links" :key="link.url">
-      <a
-        v-if="link.url.startsWith('#')"
-        :v-scroll-to="link.url"
-        class="underline">
-        {{ link.text }}
-      </a>
-      <router-link v-else :to="link.url" class="underline">
+      <router-link :to="link.url" class="underline">
         {{ link.text }}
       </router-link>
     </div>
