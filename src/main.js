@@ -6,8 +6,7 @@ import ProjectList from './components/ProjectList.vue';
 import ParticleCanvas from './components/ParticleCanvas.vue';
 import Home from './components/Home.vue';
 import Contact from './components/Contact.vue';
-import '@fancyapps/ui/dist/fancybox.css';
-// eslint-disable-next-line no-unused-vars
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { Fancybox } from '@fancyapps/ui';
 
 const router = createRouter({
@@ -35,6 +34,8 @@ const router = createRouter({
   ],
   history: createWebHistory(),
 });
+
+Fancybox.bind('[data-fancybox]');
 
 const app = createApp(App);
 app.use(router);
