@@ -12,8 +12,6 @@
 
 <script setup>
 import Project from './Project.vue';
-import Github from '../assets/github.svg';
-import Download from '../assets/download.svg';
 import TransformerToolkit from '../assets/transformer_toolkit_screenshot.png';
 import Soundboard from '../assets/soundboard_screenshot.png';
 import VibranceUtility from '../assets/vibrance_utility.png';
@@ -76,8 +74,8 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
-          url: 'https://github.com/maxroehrl/Vueddit',
+          img: 'github',
+          url: 'https://github.com/maxroehrl/Vueddit/tree/nativescript',
         },
         {
           text: 'Play Store',
@@ -120,7 +118,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/CM12Theme/tree/aurora',
         },
         {
@@ -172,7 +170,7 @@ const projects = ref(
       links: [
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://drive.google.com/file/d/1tghPESPn-aNBJlivI5z8g8BZkuB2V9VA/view?usp=sharing',
         },
       ],
@@ -199,7 +197,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/Transformer-Toolkit',
         },
         {
@@ -229,12 +227,12 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/Soundboard',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://github.com/maxroehrl/Soundboard/releases',
         },
       ],
@@ -258,12 +256,12 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/VibranceUtility',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://github.com/maxroehrl/VibranceUtility/releases',
         },
       ],
@@ -294,12 +292,12 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/DolphinUpdater',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://github.com/maxroehrl/DolphinUpdater/releases',
         },
       ],
@@ -323,12 +321,12 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/Abalone',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://github.com/maxroehrl/Abalone/releases',
         },
       ],
@@ -354,12 +352,12 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/TCPChat',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://github.com/maxroehrl/TCPChat/releases',
         },
       ],
@@ -377,7 +375,7 @@ const projects = ref(
       links: [
         {
           text: 'GH Gist',
-          img: Github,
+          img: 'github',
           url: 'https://gist.github.com/maxroehrl/7e7dba05058b66e286adad7edcb257db',
         },
       ],
@@ -393,7 +391,7 @@ const projects = ref(
       links: [
         {
           text: 'GH Gist',
-          img: Github,
+          img: 'github',
           url: 'https://gist.github.com/maxroehrl/f3c0c255118ff891e1336e6347d4c103',
         },
       ],
@@ -419,7 +417,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/Surface_mesh_simplification',
         },
       ],
@@ -471,7 +469,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/maxroehrl.github.io',
         },
       ],
@@ -498,17 +496,17 @@ const projects = ref(
       links: [
         {
           text: 'Pull request',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/psieg/Lightpack/pull/258',
         },
         {
           text: 'Issue',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/psieg/Lightpack/issues/235',
         },
         {
           text: 'Download',
-          img: Download,
+          img: 'download',
           url: 'https://www.mediafire.com/file/pg3onf3mot4999v/Prismatik_%2528unofficial%2529_64bit_Setup_5.11.2.27.exe.zip/file',
         },
       ],
@@ -537,7 +535,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/Photobooth',
         },
         {
@@ -561,7 +559,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/maxroehrl.github.io/blob/master/src/components/ParticleCanvas.vue',
         },
         {
@@ -584,7 +582,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/CM11Theme',
         },
         {
@@ -628,8 +626,8 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
-          url: 'https://github.com/maxroehrl/Vueddit/tree/native',
+          img: 'github',
+          url: 'https://github.com/maxroehrl/Vueddit',
         },
       ],
     },
@@ -648,7 +646,7 @@ const projects = ref(
       links: [
         {
           text: 'GH Gist',
-          img: Github,
+          img: 'github',
           url: 'https://gist.github.com/maxroehrl/096dfc0ebb111f36d5e07d877d60738e',
         },
       ],
@@ -671,7 +669,7 @@ const projects = ref(
       links: [
         {
           text: 'Github',
-          img: Github,
+          img: 'github',
           url: 'https://github.com/maxroehrl/miniHive',
         },
       ],
@@ -727,12 +725,12 @@ const projects = ref(
         {
           text: 'Github',
           url: 'https://github.com/maxroehrl/CPU-Monitor',
-          img: Github,
+          img: 'github',
         },
         {
           text: 'Arduino Sketch',
           url: 'https://github.com/maxroehrl/CPU-Monitor-Sketch',
-          img: Github,
+          img: 'github',
         },
       ],
     },
@@ -754,7 +752,6 @@ const projects = ref(
                   <li>Sync via <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a></li>
                   <li><a href="https://sequelize.org/">Sequelize</a> ORM on serverside for handling SQL queries</li>
                   <li><a href="https://drift.simonbinder.eu/">Drift</a> for a client-side SQLite database with auto updating streams</li>
-                  <li></li>
                 </ul>`,
       screenshots: [
         {
@@ -782,12 +779,12 @@ const projects = ref(
         {
           text: 'App',
           url: 'https://github.com/maxroehrl/App_Matesy',
-          img: Github,
+          img: 'github',
         },
         {
           text: 'Server',
           url: 'https://github.com/maxroehrl/MatesyAuthServer',
-          img: Github,
+          img: 'github',
         },
       ],
     },

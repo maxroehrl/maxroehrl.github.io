@@ -41,7 +41,10 @@
           :href="link.url"
           class="bottom-link"
           target="_blank">
-          <img v-if="link.img" :src="link.img" class="smaller-icon" />
+          <vue-inline-svg
+            v-if="link.img"
+            :src="`./assets/${link.img}.svg`"
+            class="smaller-icon" />
           <p>{{ link.text }}</p>
         </a>
         <router-link v-else :to="link.url" class="bottom-link">
@@ -53,6 +56,8 @@
 </template>
 
 <script setup>
+import VueInlineSvg from 'vue-inline-svg';
+
 defineProps({
   project: {
     type: Object,
