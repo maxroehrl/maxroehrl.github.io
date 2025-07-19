@@ -9,28 +9,35 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fancyapps/ui": "^5.0.36",
+    "@fancyapps/ui": "^6.0.15",
     "@heroicons/vue": "^2.2.0",
-    "vue": "^3.5.16",
+    "vue": "^3.5.17",
     "vue-inline-svg": "^4.0.1",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "@typescript-eslint/parser": "^8.37.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-vue": "^10.3.0",
+    "globals": "^16.3.0",
+    "rolldown-vite": "^7.0.9",
+    "sass-embedded": "^1.89.2",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.4",
-    "eslint": "9.28.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.1",
-    "eslint-plugin-vue": "^10.2.0",
-    "prettier": "3.5.3",
-    "sass": "^1.89.1",
-    "vite": "^6.3.5"
-  }
+  ]
 }
