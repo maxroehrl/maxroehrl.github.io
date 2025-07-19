@@ -43,8 +43,8 @@ const footerLinks = [
 </script>
 
 <style lang="scss">
-@import 'colors';
-@import 'dots';
+@import './colors.scss';
+@import './dots.scss';
 
 *::-webkit-scrollbar {
   background: $light-card-bg2;
