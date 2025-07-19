@@ -1,15 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import Experience from './components/Experience.vue';
-import ProjectList from './components/ProjectList.vue';
-import ParticleCanvas from './components/ParticleCanvas.vue';
 import Home from './components/Home.vue';
-import Contact from './components/Contact.vue';
-import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { Fancybox } from '@fancyapps/ui';
-import Imprint from './components/Imprint.vue';
-import DataProtection from './components/DataProtection.vue';
 import './style.css';
 
 const router = createRouter({
@@ -20,27 +13,27 @@ const router = createRouter({
     },
     {
       path: '/projects',
-      component: ProjectList,
+      component: () => import('./components/ProjectList.vue'),
     },
     {
       path: '/experience',
-      component: Experience,
+      component: () => import('./components/Experience.vue'),
     },
     {
       path: '/particles',
-      component: ParticleCanvas,
+      component: () => import('./components/ParticleCanvas.vue'),
     },
     {
       path: '/contact',
-      component: Contact,
+      component: () => import('./components/Contact.vue'),
     },
     {
       path: '/imprint',
-      component: Imprint,
+      component: () => import('./components/Imprint.vue'),
     },
     {
       path: '/data_protection',
-      component: DataProtection,
+      component: () => import('./components/DataProtection.vue'),
     },
   ],
   history: createWebHistory(),
