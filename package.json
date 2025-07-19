@@ -13,7 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fancyapps/ui": "^6.0.15",
+    "@fancyapps/ui": "^5.0.36",
     "@heroicons/vue": "^2.2.0",
     "vue": "^3.5.17",
     "vue-inline-svg": "^4.0.1",
