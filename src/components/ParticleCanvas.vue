@@ -45,7 +45,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onUnmounted, onMounted, ref } from 'vue';
 
 const State = Object.freeze({

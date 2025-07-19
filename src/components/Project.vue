@@ -55,7 +55,7 @@
   </li>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import VueInlineSvg from 'vue-inline-svg';
 
 defineProps({
@@ -98,7 +98,9 @@ defineProps({
   transition: all 0.6s ease;
 
   &:hover {
-    box-shadow: 0 0 2px $light-shadow, 0 8px 24px 0 $light-shadow2;
+    box-shadow:
+      0 0 2px $light-shadow,
+      0 8px 24px 0 $light-shadow2;
     transform: translate(0, -10px);
   }
 }
@@ -193,7 +195,9 @@ img {
     box-shadow: 0 0 0 $dark-shadow;
 
     &:hover {
-      box-shadow: 0 0 2px $dark-shadow, 0 8px 24px 0 $dark-shadow2;
+      box-shadow:
+        0 0 2px $dark-shadow,
+        0 8px 24px 0 $dark-shadow2;
     }
   }
 

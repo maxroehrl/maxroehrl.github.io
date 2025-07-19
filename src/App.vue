@@ -170,7 +170,9 @@ section {
     }
 
     > li:hover {
-      box-shadow: 0 0 2px $light-shadow, 0 8px 24px 0 $light-shadow2;
+      box-shadow:
+        0 0 2px $light-shadow,
+        0 8px 24px 0 $light-shadow2;
     }
   }
 }
@@ -223,7 +225,9 @@ section {
     box-shadow: 0 0 0 $dark-shadow;
 
     &:hover {
-      box-shadow: 0 0 2px $dark-shadow, 0 8px 24px 0 $dark-shadow2;
+      box-shadow:
+        0 0 2px $dark-shadow,
+        0 8px 24px 0 $dark-shadow2;
     }
   }
 }

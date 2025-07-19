@@ -8,7 +8,7 @@ import {
 } from '@vue/eslint-config-typescript';
 import tseslint from 'typescript-eslint';
 
-export default defineConfigWithVueTs([
+export default defineConfigWithVueTs(
   {
     ignores: ['node_modules', 'dist'],
   },
@@ -47,5 +47,5 @@ export default defineConfigWithVueTs([
         ...globals.node,
       },
     },
-  },
-]);
+  }
+);

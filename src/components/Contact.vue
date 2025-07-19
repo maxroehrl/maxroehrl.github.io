@@ -16,7 +16,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Mail from '../assets/mail.svg';
 import Github from '../assets/github.svg';
 import { ref } from 'vue';

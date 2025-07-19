@@ -10,7 +10,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Project from './Project.vue';
 import TransformerToolkit from '../assets/transformer_toolkit_screenshot.png';
 import Soundboard from '../assets/soundboard_screenshot.png';
