@@ -1,21 +1,20 @@
 <template>
-  <div class="copyright">
-    <p>Copyright &copy;{{ new Date().getFullYear() }} Max R&ouml;hrl</p>
+  <div
+    class="copyright p-4 border-t border-black flex flex-wrap items-center justify-center gap-6">
+    <p>&copy; Maximilian R&ouml;hrl. All Right Reserved.</p>
+    <router-link to="/data_protection">Data Protection</router-link>
+    <router-link to="/imprint">Imprint</router-link>
   </div>
 </template>
-
-<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 @import '../colors';
 
 .copyright {
-  padding: 1em;
   background-color: $grey;
-  border-top: 1px solid black;
 
-  > p {
-    text-align: center;
+  a,
+  p {
     color: #757575;
   }
 }
