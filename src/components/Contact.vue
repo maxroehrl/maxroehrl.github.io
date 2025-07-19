@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import Mail from '../assets/mail.svg';
 import Github from '../assets/github.svg';
+import LinkedIn from '../assets/linkedin.svg';
 import { ref } from 'vue';
 
 const links = ref([
@@ -31,6 +32,11 @@ const links = ref([
     url: 'https://github.com/maxroehrl',
     text: 'Github Profile',
     img: Github,
+  },
+  {
+    url: 'www.linkedin.com/in/maximilian-röhrl-68446220a',
+    text: 'LinkedIn Profile',
+    img: LinkedIn,
   },
 ]);
 </script>

@@ -9,6 +9,7 @@ import Contact from './components/Contact.vue';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { Fancybox } from '@fancyapps/ui';
 import Imprint from './components/Imprint.vue';
+import DataProtection from './components/DataProtection.vue';
 import './style.css';
 
 const router = createRouter({
@@ -36,6 +37,10 @@ const router = createRouter({
     {
       path: '/imprint',
       component: Imprint,
+    },
+    {
+      path: '/data_protection',
+      component: DataProtection,
     },
   ],
   history: createWebHistory(),
