@@ -9,6 +9,7 @@ import Contact from './components/Contact.vue';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { Fancybox } from '@fancyapps/ui';
 import Imprint from './components/Imprint.vue';
+import './style.css';
 
 const router = createRouter({
   routes: [

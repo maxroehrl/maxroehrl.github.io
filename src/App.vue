@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex flex-col h-full">
     <header>
       <navbar :links="navbarLinks" />
     </header>
-    <main>
+    <main class="flex-1">
       <router-view />
     </main>
     <footer>
@@ -13,7 +13,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
 import Navbar from './components/Navbar.vue';
 import Copyright from './components/Copyright.vue';
 import { ref } from 'vue';
