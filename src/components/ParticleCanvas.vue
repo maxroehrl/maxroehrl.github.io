@@ -531,9 +531,7 @@ function plotStats(stats, time, context, height, colors) {
 }
 </script>
 
-<style scoped lang="scss">
-@import '../colors';
-
+<style scoped>
 input {
   width: 50px;
 }
@@ -583,8 +581,8 @@ h3 {
 .canvas-wrapper {
   height: 400px;
   margin-top: 10px;
-  background: $light-card-bg2;
-  border: 1px solid $light-card-border;
+  background: var(--color-surface-card-2);
+  border: 1px solid var(--color-border);
 }
 
 .plot {
@@ -606,13 +604,6 @@ h3 {
         height: 100%;
       }
     }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .canvas-wrapper {
-    background: $dark-card-bg2;
-    border-color: $dark-card-border;
   }
 }
 </style>

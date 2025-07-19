@@ -66,9 +66,7 @@ defineProps({
 });
 </script>
 
-<style lang="scss">
-@import '../colors';
-
+<style scoped>
 .bottom-links {
   display: flex;
   justify-content: space-around;
@@ -76,10 +74,10 @@ defineProps({
   flex-wrap: wrap;
   padding-top: 1em;
   margin-top: 1em;
-  border-top: 1px solid $light-card-border;
+  border-top: 1px solid var(--color-border);
 
   a {
-    @include transition(color);
+    transition: color 0.2s ease-in-out;
   }
 }
 
@@ -91,16 +89,16 @@ defineProps({
   align-items: center;
   max-width: 100%;
   margin: 1em 0.3em;
-  background-color: $light-card-bg2;
+  background-color: var(--color-surface-card-2);
   border-radius: 6px;
-  border: 1px solid $light-card-border;
-  box-shadow: 0 0 0 $light-shadow;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 0 var(--color-shadow);
   transition: all 0.6s ease;
 
   &:hover {
     box-shadow:
-      0 0 2px $light-shadow,
-      0 8px 24px 0 $light-shadow2;
+      0 0 2px var(--color-shadow),
+      0 8px 24px 0 var(--color-shadow2);
     transform: translate(0, -10px);
   }
 }
@@ -113,7 +111,7 @@ defineProps({
 }
 
 .bottom-link {
-  color: $light-font;
+  color: var(--color-font);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +119,7 @@ defineProps({
   fill: currentColor;
 
   &:hover {
-    color: $accent;
+    color: var(--color-accent);
   }
 }
 
@@ -132,10 +130,10 @@ defineProps({
   align-content: flex-start;
 
   a {
-    text-decoration: underline solid $light-underline;
+    text-decoration: underline solid var(--color-underline);
 
     &:hover {
-      text-decoration-color: $light-underline-hover;
+      text-decoration-color: var(--color-underline-hover);
     }
   }
 
@@ -148,14 +146,14 @@ defineProps({
   width: 3.5em;
   height: 3.5em;
   margin: 0 1em 0 0;
-  @include transition(fill);
+  transition: fill 0.2s ease-in-out;
 }
 
 .smaller-icon {
   width: 2em;
   height: 2em;
   margin: 0 0.5em;
-  @include transition(fill);
+  transition: fill 0.2s ease-in-out;
 }
 
 img {
@@ -173,36 +171,6 @@ img {
 
   .bottom-link {
     margin: 0;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .bottom-links {
-    border-top-color: $dark-card-border;
-  }
-
-  .top-content a {
-    text-decoration-color: $dark-underline;
-
-    &:hover {
-      text-decoration-color: $dark-underline-hover;
-    }
-  }
-
-  .bottom-group-ver {
-    background-color: $dark-card-bg2;
-    border-color: $dark-card-border;
-    box-shadow: 0 0 0 $dark-shadow;
-
-    &:hover {
-      box-shadow:
-        0 0 2px $dark-shadow,
-        0 8px 24px 0 $dark-shadow2;
-    }
-  }
-
-  .bottom-link {
-    color: $dark-font;
   }
 }
 </style>

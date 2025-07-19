@@ -1,5 +1,11 @@
-<template>Hi</template>
+<template>
+  <Me />
+  <Webpages />
+  <Contact />
+</template>
 
-<script setup lang="ts"></script>
-
-<style scoped></style>
+<script lang="ts" setup>
+import Me from './Me.vue';
+import Contact from './Contact.vue';
+import Webpages from './Webpages.vue';
+</script>

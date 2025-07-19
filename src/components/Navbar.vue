@@ -22,14 +22,12 @@ defineProps({
 });
 </script>
 
-<style scoped lang="scss">
-@import '../colors';
-
+<style scoped>
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $accent;
+  background-color: var(--color-accent);
   overflow-x: auto;
 
   > div > a {

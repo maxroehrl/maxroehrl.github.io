@@ -807,7 +807,7 @@ const projects = ref(
 }
 </style>
 
-<style lang="scss">
+<style>
 .screenshot {
   width: 300px;
 }

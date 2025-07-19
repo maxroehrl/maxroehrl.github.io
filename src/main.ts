@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './components/Home.vue';
 import { Fancybox } from '@fancyapps/ui';
 import './style.css';
 
@@ -9,7 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('./components/Home.vue'),
     },
     {
       path: '/projects',

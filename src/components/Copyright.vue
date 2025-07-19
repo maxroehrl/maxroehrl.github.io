@@ -1,21 +1,14 @@
 <template>
   <div
-    class="copyright p-4 border-t border-black flex flex-wrap items-center justify-center gap-6">
-    <p>&copy; Maximilian R&ouml;hrl. All Right Reserved.</p>
-    <router-link to="/data_protection">Data Protection</router-link>
-    <router-link to="/imprint">Imprint</router-link>
+    class="p-4 border-t border-t-border bg-surface-card flex flex-wrap items-center justify-around gap-6">
+    <p class="">&copy; Maximilian R&ouml;hrl. All Right Reserved.</p>
+
+    <router-link to="/data_protection" class="text-text! hover:text-accent!">
+      Data Protection
+    </router-link>
+
+    <router-link to="/imprint" class="text-text! hover:text-accent!">
+      Imprint
+    </router-link>
   </div>
 </template>
-
-<style scoped lang="scss">
-@import '../colors';
-
-.copyright {
-  background-color: $grey;
-
-  a,
-  p {
-    color: #757575;
-  }
-}
-</style>

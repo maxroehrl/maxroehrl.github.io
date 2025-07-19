@@ -7,7 +7,6 @@
       <router-view />
     </main>
     <footer>
-      <navbar :links="footerLinks" />
       <copyright />
     </footer>
   </div>
@@ -28,61 +27,48 @@ const navbarLinks = ref([
     url: '/experience',
     text: 'Experience',
   },
-  {
+  /*{
     url: '/contact',
     text: 'Contact',
-  },
+  },*/
 ]);
-
-const footerLinks = [
-  {
-    url: '/imprint',
-    text: 'Imprint',
-  },
-].concat(navbarLinks.value);
 </script>
 
-<style lang="scss">
-@import './colors.scss';
-
+<style>
 *::-webkit-scrollbar {
-  background: $light-card-bg2;
+  background: var(--color-surface-card-2);
   width: 13px;
   height: 13px;
 }
 
 *::-webkit-scrollbar-track {
-  background: $light-card-bg;
+  background: var(--color-surface-card);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $light-card-bg2;
+  background-color: var(--color-surface-card-2);
   border-radius: 6px;
-  border: 1px solid $light-card-border;
+  border: 1px solid var(--color-border);
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  border: 0;
   display: flex;
   min-height: 100%;
   min-width: 268px;
   flex-direction: column;
-  color: $light-font;
-  background-color: $light-bg;
+  color: var(--color-text);
+  background-color: var(--color-surface-bg);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
   display: inline-block;
-  color: $accent;
+  color: var(--color-accent);
   text-decoration: none;
-  @include transition(all);
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: $light-font-hover;
+    color: var(--color-text-hover);
   }
 }
 
@@ -101,7 +87,7 @@ h1 {
 
 h2 {
   font-weight: bold;
-  color: $accent;
+  color: var(--color-accent);
   margin: 0.3em 0;
 }
 
@@ -123,25 +109,21 @@ ul {
 
 code {
   padding: 0.4em;
-  background-color: $light-code-bg;
+  background-color: var(--color-surface-code);
 }
 
 ::selection {
   color: white;
-  background-color: $accent;
+  background-color: var(--color-accent);
 }
 
 header {
-  border-bottom: 1px solid $accentDark;
-  box-shadow: 0 5px 5px $light-shadow2;
+  border-bottom: 1px solid var(--color-accent-dark);
+  box-shadow: 0 5px 5px var(--color-shadow-2);
 }
 
 main {
   min-height: 75vh;
-}
-
-footer {
-  border-top: 1px solid $accentDark;
 }
 
 section {
@@ -162,10 +144,10 @@ section {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: $light-card-bg;
-      border: 1px solid $light-card-border;
+      background-color: var(--color-surface-card);
+      border: 1px solid var(--color-border);
       border-radius: 6px;
-      box-shadow: 0 0 0 $light-shadow;
+      box-shadow: 0 0 0 var(--color-shadow);
       padding: 1em;
       margin: 1em;
       transition: all 0.6s ease;
@@ -173,8 +155,8 @@ section {
 
     > li:hover {
       box-shadow:
-        0 0 2px $light-shadow,
-        0 8px 24px 0 $light-shadow2;
+        0 0 2px var(--color-shadow),
+        0 8px 24px 0 var(--color-shadow-2);
     }
   }
 }
@@ -186,50 +168,6 @@ section {
     > li {
       border-radius: 0;
       margin: 1em 0;
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  *::-webkit-scrollbar {
-    background: $dark-card-bg2;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: $dark-card-bg;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: $dark-card-bg2;
-    border-color: $dark-card-border;
-  }
-
-  body {
-    background: $dark-bg;
-    color: $dark-font;
-  }
-
-  a:hover {
-    color: $dark-font-hover;
-  }
-
-  code {
-    background: $dark-code-bg;
-  }
-
-  header {
-    box-shadow: 0 5px 5px $dark-shadow2;
-  }
-
-  section > ul > li {
-    background: $dark-card-bg;
-    border-color: $dark-card-border;
-    box-shadow: 0 0 0 $dark-shadow;
-
-    &:hover {
-      box-shadow:
-        0 0 2px $dark-shadow,
-        0 8px 24px 0 $dark-shadow2;
     }
   }
 }

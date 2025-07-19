@@ -29,44 +29,41 @@ const glyphPath = ref(
 );
 </script>
 
-<style scoped lang="scss">
-@import '../colors';
-
-$glyph: white;
-$glyph-hover: $accent;
-$ring: white;
-$ring-hover: $grey;
-$circle: $grey;
-
+<style scoped>
 svg {
   margin-top: 8px;
   width: 3em;
   height: 3em;
+  --glyph: white;
+  --glyph-hover: var(--color-accent);
+  --ring: white;
+  --ring-hover: var(--color-grey);
+  --circle: var(--color-grey);
 }
 
 .circle {
-  fill: $circle;
+  fill: var(--circle);
 }
 
 .logo {
-  fill: $glyph;
+  fill: var(--glyph);
   transition: fill 0.5s ease-in-out;
 }
 
 .ring {
   fill: transparent;
   stroke-width: 20px;
-  stroke: $ring;
+  stroke: var(--ring);
   transition: all 0.5s cubic-bezier(0.4, 0.32, 0.28, 1.35);
 }
 
 .logo-group:hover {
   .logo {
-    fill: $glyph-hover;
+    fill: var(--glyph-hover);
   }
 
   .ring {
-    stroke: $ring-hover;
+    stroke: var(--ring-hover);
     transform: scale(1.07) translate(-3.5%, -3.5%);
   }
 }
