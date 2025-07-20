@@ -165,7 +165,7 @@
                 Hackbay 2021
               </p>
               <p class="text-sm text-text mt-1">
-                Zollhoff, Nürnberg, Bavaria, Germany
+                Zollhof, Nürnberg, Bavaria, Germany
               </p>
               <a
                 href="/HackBay_Best_Technical_Implementation_2021.pdf"
@@ -187,7 +187,7 @@
                 Winner of the price 'Overall Best' at the Hackbay 2020
               </p>
               <p class="text-sm text-text mt-1">
-                Zollhoff, Nürnberg, Bavaria, Germany
+                Zollhof, Nürnberg, Bavaria, Germany
               </p>
               <a href="/Urkunde_Overall_Best_2020.pdf" target="_blank">
                 Certificate
@@ -202,6 +202,8 @@
 
 <style scoped>
 .bg-surface-card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
   transition: all 0.6s ease;
 }
 
