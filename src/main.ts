@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { Fancybox } from '@fancyapps/ui';
 import './style.css';
 
@@ -35,7 +35,7 @@ const router = createRouter({
       component: () => import('./components/DataProtection.vue'),
     },
   ],
-  history: createWebHistory(),
+  history: createWebHashHistory(),
 });
 
 Fancybox.bind('[data-fancybox]');
