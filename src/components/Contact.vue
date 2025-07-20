@@ -1,13 +1,19 @@
 <template>
   <section id="contact">
-    <h1>Contact</h1>
+    <h3 class="text-center text-4xl! self-center">Contact</h3>
+
     <ul>
-      <li>
-        <a v-for="link in links"
-           :key="link.url"
-           :href="link.url"
-           class="bottom-link">
-          <component :is="link.img" class="small-icon" />
+      <li class="items-start">
+        <a
+          v-for="link in links"
+          :key="link.url"
+          :href="link.url"
+          target="_blank"
+          class="bottom-link text-text!">
+          <img
+            :alt="link.text"
+            :src="link.img"
+            class="small-icon filter dark:invert dark:brightness-90" />
           <b>{{ link.text }}</b>
         </a>
       </li>
@@ -15,66 +21,54 @@
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
 import Mail from '../assets/mail.svg';
 import Github from '../assets/github.svg';
+import LinkedIn from '../assets/linkedin.svg';
+import { ref } from 'vue';
 
-export default {
-  name: 'Contact',
-  components: {
-    Mail,
-    Github,
+const links = ref([
+  {
+    url: 'mailto:max.roehrl11@gmail.com',
+    text: 'max.roehrl11@gmail.com',
+    img: Mail,
   },
-  data() {
-    return {
-      links: [
-        {
-          url: 'mailto:max.roehrl11@gmail.com',
-          text: 'max.roehrl11@gmail.com',
-          img: Mail,
-        }, {
-          url: 'https://github.com/maxroehrl',
-          text: 'Github Profile',
-          img: Github,
-        },
-      ],
-    };
+  {
+    url: 'https://github.com/maxroehrl',
+    text: 'Github Profile',
+    img: Github,
   },
-};
+  {
+    url: 'https://www.linkedin.com/in/maximilian-röhrl-68446220a',
+    text: 'LinkedIn Profile',
+    img: LinkedIn,
+  },
+]);
 </script>
 
 <style scoped lang="scss">
-  @import "../colors";
+.bottom-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.7em;
+}
 
-  .bottom-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 .7em;
-    fill: currentColor;
+.small-icon {
+  width: 2em;
+  height: 2em;
+  margin: 0 0.5em;
+  transition: fill 0.2s ease-in-out;
+}
+
+#contact a {
+  // align-self: flex-start;
+  color: var(--color-grey);
+  margin: 0.5em;
+
+  &:hover {
+    transform: translate(10px, 0);
+    color: var(--color-accent);
   }
-
-  .small-icon {
-    width: 2em;
-    height: 2em;
-    margin: 0 .5em;
-    @include transition(fill);
-  }
-
-  #contact a {
-    // align-self: flex-start;
-    color: $grey;
-    margin: .5em;
-
-    &:hover {
-      transform: translate(10px, 0);
-      color: $accent;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    #contact a {
-      color: $dark-font;
-    }
-  }
+}
 </style>

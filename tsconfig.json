@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": true
+  }
+}

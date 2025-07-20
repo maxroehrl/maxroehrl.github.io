@@ -1,26 +1,14 @@
 <template>
-  <div class="copyright">
-    <p>Copyright &copy;{{ new Date().getFullYear() }} Max R&ouml;hrl</p>
+  <div
+    class="p-4 border-t border-t-border bg-surface-card flex flex-wrap items-center justify-around gap-6">
+    <p class="">&copy; Maximilian R&ouml;hrl. All Right Reserved.</p>
+
+    <router-link to="/data_protection" class="text-text! hover:text-accent!">
+      Data Protection
+    </router-link>
+
+    <router-link to="/imprint" class="text-text! hover:text-accent!">
+      Imprint
+    </router-link>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'Copyright',
-};
-</script>
-
-<style scoped lang="scss">
-  @import "../colors";
-
-  .copyright {
-    padding: 1em;
-    background-color: $grey;
-    border-top: 1px solid black;
-
-    > p {
-      text-align: center;
-      color: #757575;
-    }
-  }
-</style>
