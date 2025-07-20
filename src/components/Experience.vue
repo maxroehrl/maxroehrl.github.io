@@ -117,14 +117,88 @@
               <p class="text-sm text-text mt-1">2015–2019</p>
             </div>
           </div>
+
+          <!-- School -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-2.5 w-4 h-4 bg-accent rounded-full border-4 border-text shadow"></div>
+            <div
+              class="bg-surface-card rounded-lg p-6 shadow-sm hover:translate-x-2">
+              <h3 class="text-xl font-semibold text-text">
+                Gymnasium Landau a. d. Isar
+              </h3>
+              <h4 class="text-lg font-medium text-accent mt-2">Abitur</h4>
+              <p class="text-sm text-text mt-1">2007–2015</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hackathon -->
+    <section>
+      <h2
+        class="text-3xl font-bold text-accent-dark mb-8 border-b-2 border-accent pb-2">
+        Hackathons with
+        <a href="/Kurzschluss.FEST.pdf" target="_blank">
+          Team Kurzschlussfest
+        </a>
+      </h2>
+
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-text"></div>
+
+        <div class="space-y-8">
+          <!-- 2021 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-2.5 w-4 h-4 bg-accent rounded-full border-4 border-text shadow"></div>
+            <div
+              class="bg-surface-card rounded-lg p-6 shadow-sm hover:translate-x-2">
+              <h3 class="text-xl font-semibold text-text">Hackbay Winner</h3>
+              <h4 class="text-lg font-medium text-accent mt-2">
+                Best Technical Implementation
+              </h4>
+              <p class="text-sm text-text mt-1">
+                Winner of the price 'Best technical implementation' at the
+                Hackbay 2021
+              </p>
+              <p class="text-sm text-text mt-1">
+                Zollhoff, Nürnberg, Bavaria, Germany
+              </p>
+              <a
+                href="/HackBay_Best_Technical_Implementation_2021.pdf"
+                target="_blank">
+                Certificate
+              </a>
+            </div>
+          </div>
+
+          <!-- 2020 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-2.5 w-4 h-4 bg-accent rounded-full border-4 border-text shadow"></div>
+            <div
+              class="bg-surface-card rounded-lg p-6 shadow-sm hover:translate-x-2">
+              <h3 class="text-xl font-semibold text-text">Hackathon Winner</h3>
+              <h4 class="text-lg font-medium text-accent mt-2">Best Overall</h4>
+              <p class="text-sm text-text mt-1">
+                Winner of the price 'Overall Best' at the Hackbay 2020
+              </p>
+              <p class="text-sm text-text mt-1">
+                Zollhoff, Nürnberg, Bavaria, Germany
+              </p>
+              <a href="/Urkunde_Overall_Best_2020.pdf" target="_blank">
+                Certificate
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-</script>
 
 <style scoped>
 .bg-surface-card {
