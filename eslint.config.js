@@ -10,7 +10,7 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfigWithVueTs(
   {
-    ignores: ['node_modules', 'dist'],
+    ignores: ['node_modules', 'docs'],
   },
   // JavaScript base config
   pluginJs.configs.recommended,
